@@ -130,7 +130,15 @@
 <a class="jxr_linenumber" name="L122" href="#L122">122</a>         
 <a class="jxr_linenumber" name="L123" href="#L123">123</a>         <strong class="jxr_keyword">return</strong> r1.getMinimum().equals(r2.getMinimum()) &amp;&amp; r1.getMaximum().equals(r2.getMaximum());
 <a class="jxr_linenumber" name="L124" href="#L124">124</a>     }
-<a class="jxr_linenumber" name="L125" href="#L125">125</a> }
+<a class="jxr_linenumber" name="L125" href="#L125">125</a>     
+<a class="jxr_linenumber" name="L126" href="#L126">126</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> <a href="../../../org/epics/graphene/Range.html">Range</a> aggregateRange(<a href="../../../org/epics/graphene/Range.html">Range</a> dataRange, <a href="../../../org/epics/graphene/Range.html">Range</a> aggregatedRange) {
+<a class="jxr_linenumber" name="L127" href="#L127">127</a>         <strong class="jxr_keyword">if</strong> (aggregatedRange == <strong class="jxr_keyword">null</strong>) {
+<a class="jxr_linenumber" name="L128" href="#L128">128</a>             <strong class="jxr_keyword">return</strong> dataRange;
+<a class="jxr_linenumber" name="L129" href="#L129">129</a>         } <strong class="jxr_keyword">else</strong> {
+<a class="jxr_linenumber" name="L130" href="#L130">130</a>             <strong class="jxr_keyword">return</strong> RangeUtil.sum(dataRange, aggregatedRange);
+<a class="jxr_linenumber" name="L131" href="#L131">131</a>         }
+<a class="jxr_linenumber" name="L132" href="#L132">132</a>     }
+<a class="jxr_linenumber" name="L133" href="#L133">133</a> }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2012&#x2013;2014 Brookhaven National Laboratory, University of Michigan. All rights reserved.</div>
