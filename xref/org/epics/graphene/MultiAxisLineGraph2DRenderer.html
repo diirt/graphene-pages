@@ -121,7 +121,7 @@
 <a class="jxr_linenumber" name="L113" href="#L113">113</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">double</strong> xPlotCoordWidth;
 <a class="jxr_linenumber" name="L114" href="#L114">114</a>     
 <a class="jxr_linenumber" name="L115" href="#L115">115</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> stretch = false;
-<a class="jxr_linenumber" name="L116" href="#L116">116</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> split = false;
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">boolean</strong> separateAreas = false;
 <a class="jxr_linenumber" name="L117" href="#L117">117</a>     <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L118" href="#L118">118</a> <em class="jxr_javadoccomment">     * Creates a new line graph renderer.</em>
 <a class="jxr_linenumber" name="L119" href="#L119">119</a> <em class="jxr_javadoccomment">     * </em>
@@ -175,8 +175,8 @@
 <a class="jxr_linenumber" name="L167" href="#L167">167</a>         <strong class="jxr_keyword">if</strong>(update.getMinimumGraphHeight() != <strong class="jxr_keyword">null</strong>){
 <a class="jxr_linenumber" name="L168" href="#L168">168</a>             minimumGraphHeight = update.getMinimumGraphHeight();
 <a class="jxr_linenumber" name="L169" href="#L169">169</a>         }
-<a class="jxr_linenumber" name="L170" href="#L170">170</a>         <strong class="jxr_keyword">if</strong>(update.isSplit() != <strong class="jxr_keyword">null</strong>){
-<a class="jxr_linenumber" name="L171" href="#L171">171</a>             split = update.isSplit();
+<a class="jxr_linenumber" name="L170" href="#L170">170</a>         <strong class="jxr_keyword">if</strong>(update.isSeparateAreas() != <strong class="jxr_keyword">null</strong>){
+<a class="jxr_linenumber" name="L171" href="#L171">171</a>             separateAreas = update.isSeparateAreas();
 <a class="jxr_linenumber" name="L172" href="#L172">172</a>         }
 <a class="jxr_linenumber" name="L173" href="#L173">173</a>     }
 <a class="jxr_linenumber" name="L174" href="#L174">174</a> 
@@ -202,7 +202,7 @@
 <a class="jxr_linenumber" name="L194" href="#L194">194</a> 
 <a class="jxr_linenumber" name="L195" href="#L195">195</a>         labelFontMetrics = g.getFontMetrics(labelFont);
 <a class="jxr_linenumber" name="L196" href="#L196">196</a>         
-<a class="jxr_linenumber" name="L197" href="#L197">197</a>         <strong class="jxr_keyword">if</strong>(split){
+<a class="jxr_linenumber" name="L197" href="#L197">197</a>         <strong class="jxr_keyword">if</strong>(separateAreas){
 <a class="jxr_linenumber" name="L198" href="#L198">198</a>             xLabelMaxHeight = labelFontMetrics.getHeight() - labelFontMetrics.getLeading();
 <a class="jxr_linenumber" name="L199" href="#L199">199</a>             totalYMargins = xLabelMaxHeight + marginBetweenGraphs + topMargin + bottomMargin + topAreaMargin + bottomAreaMargin + xLabelMargin + 1;
 <a class="jxr_linenumber" name="L200" href="#L200">200</a>             getNumGraphsSplit(data);
@@ -235,7 +235,7 @@
 <a class="jxr_linenumber" name="L227" href="#L227">227</a>         <strong class="jxr_keyword">for</strong>(<strong class="jxr_keyword">int</strong> i = 0; i &lt; numGraphs; i++){
 <a class="jxr_linenumber" name="L228" href="#L228">228</a>             yValues.add(org.epics.util.array.ListNumbers.sortedView(data.get(i).getYValues(), xValues.get(i).getIndexes()));
 <a class="jxr_linenumber" name="L229" href="#L229">229</a>         }
-<a class="jxr_linenumber" name="L230" href="#L230">230</a>         <strong class="jxr_keyword">if</strong>(split){
+<a class="jxr_linenumber" name="L230" href="#L230">230</a>         <strong class="jxr_keyword">if</strong>(separateAreas){
 <a class="jxr_linenumber" name="L231" href="#L231">231</a>             g.setColor(Color.BLACK);
 <a class="jxr_linenumber" name="L232" href="#L232">232</a>             <strong class="jxr_keyword">for</strong>(<strong class="jxr_keyword">int</strong> i = 0; i &lt; numGraphs; i++){
 <a class="jxr_linenumber" name="L233" href="#L233">233</a>                 drawValueExplicitLine(xValues.get(i), yValues.get(i), interpolation, reduction,i);
@@ -276,7 +276,7 @@
 <a class="jxr_linenumber" name="L268" href="#L268">268</a>             }
 <a class="jxr_linenumber" name="L269" href="#L269">269</a>     }
 <a class="jxr_linenumber" name="L270" href="#L270">270</a>     
-<a class="jxr_linenumber" name="L271" href="#L271">271</a>     <em class="jxr_comment">//method to get number of graphs when the graphs are split</em>
+<a class="jxr_linenumber" name="L271" href="#L271">271</a>     <em class="jxr_comment">//method to get number of graphs when the graphs are separateAreas</em>
 <a class="jxr_linenumber" name="L272" href="#L272">272</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">void</strong> getNumGraphsSplit(List&lt;Point2DDataset&gt; data){
 <a class="jxr_linenumber" name="L273" href="#L273">273</a>         <strong class="jxr_keyword">if</strong>(<strong class="jxr_keyword">this</strong>.graphBoundaries == <strong class="jxr_keyword">null</strong> || <strong class="jxr_keyword">this</strong>.graphBoundaries.size() != numGraphs+1){
 <a class="jxr_linenumber" name="L274" href="#L274">274</a>             numGraphs = data.size();
@@ -384,7 +384,7 @@
 <a class="jxr_linenumber" name="L376" href="#L376">376</a>             <strong class="jxr_keyword">for</strong>(<strong class="jxr_keyword">int</strong> i = 0; i &lt; yPlotRange.size(); i++){
 <a class="jxr_linenumber" name="L377" href="#L377">377</a>                 <strong class="jxr_keyword">if</strong> (!yPlotRange.get(i).getMinimum().equals(yPlotRange.get(i).getMaximum())) {
 <a class="jxr_linenumber" name="L378" href="#L378">378</a>                     <a href="../../../org/epics/graphene/ValueAxis.html">ValueAxis</a> yAxis;
-<a class="jxr_linenumber" name="L379" href="#L379">379</a>                     <strong class="jxr_keyword">if</strong>(split){
+<a class="jxr_linenumber" name="L379" href="#L379">379</a>                     <strong class="jxr_keyword">if</strong>(separateAreas){
 <a class="jxr_linenumber" name="L380" href="#L380">380</a>                         yAxis = yValueScale.references(yPlotRange.get(i), 2, Math.max(2, (graphBoundaries.get(i+1).intValue() - graphBoundaries.get(i).intValue()) / 60));
 <a class="jxr_linenumber" name="L381" href="#L381">381</a>                     }<strong class="jxr_keyword">else</strong>{
 <a class="jxr_linenumber" name="L382" href="#L382">382</a>                         yAxis = yValueScale.references(yPlotRange.get(i), 2, Math.max(2, getImageHeight() / 60));
@@ -402,7 +402,7 @@
 <a class="jxr_linenumber" name="L394" href="#L394">394</a>             <strong class="jxr_keyword">for</strong>(<strong class="jxr_keyword">int</strong> i = 0; i &lt; yPlotRange.size(); i++){
 <a class="jxr_linenumber" name="L395" href="#L395">395</a>                 <strong class="jxr_keyword">if</strong> (!yPlotRange.get(i).getMinimum().equals(yPlotRange.get(i).getMaximum())) {
 <a class="jxr_linenumber" name="L396" href="#L396">396</a>                     <a href="../../../org/epics/graphene/ValueAxis.html">ValueAxis</a> yAxis;
-<a class="jxr_linenumber" name="L397" href="#L397">397</a>                     <strong class="jxr_keyword">if</strong>(split){
+<a class="jxr_linenumber" name="L397" href="#L397">397</a>                     <strong class="jxr_keyword">if</strong>(separateAreas){
 <a class="jxr_linenumber" name="L398" href="#L398">398</a>                         yAxis = yValueScale.references(yPlotRange.get(i), 2, Math.max(2, (graphBoundaries.get(i+1).intValue() - graphBoundaries.get(i).intValue()) / 60));
 <a class="jxr_linenumber" name="L399" href="#L399">399</a>                     }<strong class="jxr_keyword">else</strong>{
 <a class="jxr_linenumber" name="L400" href="#L400">400</a>                         yAxis = yValueScale.references(yPlotRange.get(i), 2, Math.max(2, getImageHeight() / 60));
@@ -501,7 +501,7 @@
 <a class="jxr_linenumber" name="L493" href="#L493">493</a>             <strong class="jxr_keyword">for</strong>(<strong class="jxr_keyword">int</strong> a = 0; a &lt; yReferenceValues.size(); a++){
 <a class="jxr_linenumber" name="L494" href="#L494">494</a>                 <strong class="jxr_keyword">double</strong>[] yRefCoords = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">double</strong>[yReferenceValues.get(a).size()];
 <a class="jxr_linenumber" name="L495" href="#L495">495</a>                 <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> b = 0; b &lt; yRefCoords.length; b++) {
-<a class="jxr_linenumber" name="L496" href="#L496">496</a>                     <strong class="jxr_keyword">if</strong>(split){
+<a class="jxr_linenumber" name="L496" href="#L496">496</a>                     <strong class="jxr_keyword">if</strong>(separateAreas){
 <a class="jxr_linenumber" name="L497" href="#L497">497</a>                         yRefCoords[b] = scaledYSplit(yReferenceValues.get(a).getDouble(b),a);
 <a class="jxr_linenumber" name="L498" href="#L498">498</a>                     }<strong class="jxr_keyword">else</strong>{
 <a class="jxr_linenumber" name="L499" href="#L499">499</a>                         yRefCoords[b] = scaledY(yReferenceValues.get(a).getDouble(b),a);
@@ -612,7 +612,7 @@
 <a class="jxr_linenumber" name="L604" href="#L604">604</a>             <strong class="jxr_keyword">for</strong>(<strong class="jxr_keyword">int</strong> a = 0; a &lt; yReferenceValues.size(); a++){
 <a class="jxr_linenumber" name="L605" href="#L605">605</a>                 <strong class="jxr_keyword">double</strong>[] yRefCoords = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">double</strong>[yReferenceValues.get(a).size()];
 <a class="jxr_linenumber" name="L606" href="#L606">606</a>                 <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> b = 0; b &lt; yRefCoords.length; b++) {
-<a class="jxr_linenumber" name="L607" href="#L607">607</a>                     <strong class="jxr_keyword">if</strong>(split){
+<a class="jxr_linenumber" name="L607" href="#L607">607</a>                     <strong class="jxr_keyword">if</strong>(separateAreas){
 <a class="jxr_linenumber" name="L608" href="#L608">608</a>                         yRefCoords[b] = scaledYSplit(yReferenceValues.get(a).getDouble(b),a);
 <a class="jxr_linenumber" name="L609" href="#L609">609</a>                     }<strong class="jxr_keyword">else</strong>{
 <a class="jxr_linenumber" name="L610" href="#L610">610</a>                         yRefCoords[b] = scaledY(yReferenceValues.get(a).getDouble(b),a);
@@ -635,7 +635,7 @@
 <a class="jxr_linenumber" name="L627" href="#L627">627</a>     <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> drawGraphArea() {
 <a class="jxr_linenumber" name="L628" href="#L628">628</a>         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 <a class="jxr_linenumber" name="L629" href="#L629">629</a>         <em class="jxr_comment">// When drawing the reference line, align them to the pixel</em>
-<a class="jxr_linenumber" name="L630" href="#L630">630</a>         <strong class="jxr_keyword">if</strong>(split){
+<a class="jxr_linenumber" name="L630" href="#L630">630</a>         <strong class="jxr_keyword">if</strong>(separateAreas){
 <a class="jxr_linenumber" name="L631" href="#L631">631</a>             drawVerticalReferenceLinesSplit();
 <a class="jxr_linenumber" name="L632" href="#L632">632</a>             drawHorizontalReferenceLinesSplit();
 <a class="jxr_linenumber" name="L633" href="#L633">633</a>         
@@ -1015,7 +1015,7 @@
 <a class="jxr_linenumber" name="L1007" href="#L1007">1007</a>         g.draw(path);
 <a class="jxr_linenumber" name="L1008" href="#L1008">1008</a>     }
 <a class="jxr_linenumber" name="L1009" href="#L1009">1009</a>     
-<a class="jxr_linenumber" name="L1010" href="#L1010">1010</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">class</strong> <a href="../../../org/epics/graphene/MultiAxisLineGraph2DRenderer.html">ScaledData</a> {
+<a class="jxr_linenumber" name="L1010" href="#L1010">1010</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">class</strong> <a href="../../../org/epics/graphene/Graph2DRenderer.html">ScaledData</a> {
 <a class="jxr_linenumber" name="L1011" href="#L1011">1011</a>         <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">double</strong>[] scaledX;
 <a class="jxr_linenumber" name="L1012" href="#L1012">1012</a>         <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">double</strong>[] scaledY;
 <a class="jxr_linenumber" name="L1013" href="#L1013">1013</a>         <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> start;
@@ -1029,7 +1029,7 @@
 <a class="jxr_linenumber" name="L1021" href="#L1021">1021</a>         scaledData.scaledY = <strong class="jxr_keyword">new</strong> <strong class="jxr_keyword">double</strong>[dataCount];
 <a class="jxr_linenumber" name="L1022" href="#L1022">1022</a>         <strong class="jxr_keyword">for</strong> (<strong class="jxr_keyword">int</strong> i = 0; i &lt; scaledData.scaledY.length; i++) {
 <a class="jxr_linenumber" name="L1023" href="#L1023">1023</a>             scaledData.scaledX[i] = scaledX1(xValues.getDouble(i));
-<a class="jxr_linenumber" name="L1024" href="#L1024">1024</a>             <strong class="jxr_keyword">if</strong>(split){
+<a class="jxr_linenumber" name="L1024" href="#L1024">1024</a>             <strong class="jxr_keyword">if</strong>(separateAreas){
 <a class="jxr_linenumber" name="L1025" href="#L1025">1025</a>                 scaledData.scaledY[i] = scaledYSplit(yValues.getDouble(i), index);
 <a class="jxr_linenumber" name="L1026" href="#L1026">1026</a>             }<strong class="jxr_keyword">else</strong>{
 <a class="jxr_linenumber" name="L1027" href="#L1027">1027</a>                 scaledData.scaledY[i] = scaledY(yValues.getDouble(i), index);
@@ -1054,7 +1054,7 @@
 <a class="jxr_linenumber" name="L1046" href="#L1046">1046</a>         <strong class="jxr_keyword">int</strong> cursor = 0;
 <a class="jxr_linenumber" name="L1047" href="#L1047">1047</a>         <strong class="jxr_keyword">int</strong> previousPixel = (<strong class="jxr_keyword">int</strong>) scaledX1(xValues.getDouble(0));
 <a class="jxr_linenumber" name="L1048" href="#L1048">1048</a>         <strong class="jxr_keyword">double</strong> last;
-<a class="jxr_linenumber" name="L1049" href="#L1049">1049</a>         <strong class="jxr_keyword">if</strong>(split){
+<a class="jxr_linenumber" name="L1049" href="#L1049">1049</a>         <strong class="jxr_keyword">if</strong>(separateAreas){
 <a class="jxr_linenumber" name="L1050" href="#L1050">1050</a>             last = scaledYSplit(yValues.getDouble(0),index);
 <a class="jxr_linenumber" name="L1051" href="#L1051">1051</a>         }<strong class="jxr_keyword">else</strong>{
 <a class="jxr_linenumber" name="L1052" href="#L1052">1052</a>             last = scaledY(yValues.getDouble(0),index);
@@ -1069,7 +1069,7 @@
 <a class="jxr_linenumber" name="L1061" href="#L1061">1061</a>             <strong class="jxr_keyword">double</strong> currentScaledX = scaledX1(xValues.getDouble(i));
 <a class="jxr_linenumber" name="L1062" href="#L1062">1062</a>             <strong class="jxr_keyword">int</strong> currentPixel = (<strong class="jxr_keyword">int</strong>) currentScaledX;
 <a class="jxr_linenumber" name="L1063" href="#L1063">1063</a>             <strong class="jxr_keyword">if</strong> (currentPixel == previousPixel) {
-<a class="jxr_linenumber" name="L1064" href="#L1064">1064</a>                 <strong class="jxr_keyword">if</strong>(split){
+<a class="jxr_linenumber" name="L1064" href="#L1064">1064</a>                 <strong class="jxr_keyword">if</strong>(separateAreas){
 <a class="jxr_linenumber" name="L1065" href="#L1065">1065</a>                     last = scaledYSplit(yValues.getDouble(i),index);
 <a class="jxr_linenumber" name="L1066" href="#L1066">1066</a>                 }<strong class="jxr_keyword">else</strong>{
 <a class="jxr_linenumber" name="L1067" href="#L1067">1067</a>                     last = scaledY(yValues.getDouble(i),index);
@@ -1088,7 +1088,7 @@
 <a class="jxr_linenumber" name="L1080" href="#L1080">1080</a>                 scaledData.scaledY[cursor] = last;
 <a class="jxr_linenumber" name="L1081" href="#L1081">1081</a>                 cursor++;
 <a class="jxr_linenumber" name="L1082" href="#L1082">1082</a>                 previousPixel = currentPixel;
-<a class="jxr_linenumber" name="L1083" href="#L1083">1083</a>                 <strong class="jxr_keyword">if</strong>(split){
+<a class="jxr_linenumber" name="L1083" href="#L1083">1083</a>                 <strong class="jxr_keyword">if</strong>(separateAreas){
 <a class="jxr_linenumber" name="L1084" href="#L1084">1084</a>                     last = scaledYSplit(yValues.getDouble(i),index);
 <a class="jxr_linenumber" name="L1085" href="#L1085">1085</a>                 }<strong class="jxr_keyword">else</strong>{
 <a class="jxr_linenumber" name="L1086" href="#L1086">1086</a>                     last = scaledY(yValues.getDouble(i),index);

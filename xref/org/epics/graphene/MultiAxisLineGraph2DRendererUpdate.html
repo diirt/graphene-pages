@@ -29,7 +29,7 @@
 <a class="jxr_linenumber" name="L21" href="#L21">21</a>      
 <a class="jxr_linenumber" name="L22" href="#L22">22</a>      <strong class="jxr_keyword">private</strong> Integer minimumGraphWidth;
 <a class="jxr_linenumber" name="L23" href="#L23">23</a>      
-<a class="jxr_linenumber" name="L24" href="#L24">24</a>      <strong class="jxr_keyword">private</strong> Boolean split;
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>      <strong class="jxr_keyword">private</strong> Boolean separateAreas;
 <a class="jxr_linenumber" name="L25" href="#L25">25</a>      
 <a class="jxr_linenumber" name="L26" href="#L26">26</a>      <strong class="jxr_keyword">public</strong> <a href="../../../org/epics/graphene/MultiAxisLineGraph2DRendererUpdate.html">MultiAxisLineGraph2DRendererUpdate</a> minimumGraphWidth(<strong class="jxr_keyword">int</strong> minimumGraphWidth){
 <a class="jxr_linenumber" name="L27" href="#L27">27</a>          <strong class="jxr_keyword">this</strong>.minimumGraphWidth = minimumGraphWidth;
@@ -83,8 +83,8 @@
 <a class="jxr_linenumber" name="L75" href="#L75">75</a>          <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>.self();
 <a class="jxr_linenumber" name="L76" href="#L76">76</a>      }
 <a class="jxr_linenumber" name="L77" href="#L77">77</a>      
-<a class="jxr_linenumber" name="L78" href="#L78">78</a>      <strong class="jxr_keyword">public</strong> <a href="../../../org/epics/graphene/MultiAxisLineGraph2DRendererUpdate.html">MultiAxisLineGraph2DRendererUpdate</a> split(<strong class="jxr_keyword">boolean</strong> split){
-<a class="jxr_linenumber" name="L79" href="#L79">79</a>          <strong class="jxr_keyword">this</strong>.split = split;
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>      <strong class="jxr_keyword">public</strong> <a href="../../../org/epics/graphene/MultiAxisLineGraph2DRendererUpdate.html">MultiAxisLineGraph2DRendererUpdate</a> separateAreas(<strong class="jxr_keyword">boolean</strong> separateAreas){
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>          <strong class="jxr_keyword">this</strong>.separateAreas = separateAreas;
 <a class="jxr_linenumber" name="L80" href="#L80">80</a>          <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">this</strong>.self();
 <a class="jxr_linenumber" name="L81" href="#L81">81</a>      }
 <a class="jxr_linenumber" name="L82" href="#L82">82</a>      
@@ -120,8 +120,8 @@
 <a class="jxr_linenumber" name="L112" href="#L112">112</a>         <strong class="jxr_keyword">return</strong> minimumGraphWidth;
 <a class="jxr_linenumber" name="L113" href="#L113">113</a>     }
 <a class="jxr_linenumber" name="L114" href="#L114">114</a>     
-<a class="jxr_linenumber" name="L115" href="#L115">115</a>     <strong class="jxr_keyword">public</strong> Boolean isSplit(){
-<a class="jxr_linenumber" name="L116" href="#L116">116</a>         <strong class="jxr_keyword">return</strong> split;
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>     <strong class="jxr_keyword">public</strong> Boolean isSeparateAreas(){
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>         <strong class="jxr_keyword">return</strong> separateAreas;
 <a class="jxr_linenumber" name="L117" href="#L117">117</a>     }
 <a class="jxr_linenumber" name="L118" href="#L118">118</a> }
 </pre>
