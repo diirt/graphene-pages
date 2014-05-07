@@ -26,7 +26,7 @@
 <a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../org/epics/graphene/LineTimeGraph2DRenderer.html">LineTimeGraph2DRenderer</a> <strong class="jxr_keyword">extends</strong> TemporalGraph2DRenderer&lt;LineTimeGraph2DRendererUpdate&gt; {
 <a class="jxr_linenumber" name="L19" href="#L19">19</a>  
 <a class="jxr_linenumber" name="L20" href="#L20">20</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">static</strong> java.util.List&lt;InterpolationScheme&gt; supportedInterpolationScheme = Arrays.asList(
-<a class="jxr_linenumber" name="L21" href="#L21">21</a>              InterpolationScheme.NEAREST_NEIGHBOUR, 
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>              InterpolationScheme.NEAREST_NEIGHBOR, 
 <a class="jxr_linenumber" name="L22" href="#L22">22</a>              InterpolationScheme.PREVIOUS_VALUE,
 <a class="jxr_linenumber" name="L23" href="#L23">23</a>              InterpolationScheme.LINEAR,
 <a class="jxr_linenumber" name="L24" href="#L24">24</a>              InterpolationScheme.CUBIC);
@@ -36,7 +36,7 @@
 <a class="jxr_linenumber" name="L28" href="#L28">28</a>          <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> <a href="../../../org/epics/graphene/LineTimeGraph2DRendererUpdate.html">LineTimeGraph2DRendererUpdate</a>();
 <a class="jxr_linenumber" name="L29" href="#L29">29</a>      }
 <a class="jxr_linenumber" name="L30" href="#L30">30</a>  
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>      <strong class="jxr_keyword">private</strong> <a href="../../../org/epics/graphene/InterpolationScheme.html">InterpolationScheme</a> interpolation = InterpolationScheme.NEAREST_NEIGHBOUR;
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>      <strong class="jxr_keyword">private</strong> <a href="../../../org/epics/graphene/InterpolationScheme.html">InterpolationScheme</a> interpolation = InterpolationScheme.NEAREST_NEIGHBOR;
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>  
 <a class="jxr_linenumber" name="L33" href="#L33">33</a>      <em class="jxr_javadoccomment">/**</em>
 <a class="jxr_linenumber" name="L34" href="#L34">34</a>  <em class="jxr_javadoccomment">     * Creates a new line graph renderer.</em>

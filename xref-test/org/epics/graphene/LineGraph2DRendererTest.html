@@ -313,7 +313,7 @@
 <a class="jxr_linenumber" name="L305" href="#L305">305</a>         Point2DDataset data = Point2DTestDatasets.oneNaNDataset();
 <a class="jxr_linenumber" name="L306" href="#L306">306</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(300, 200, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L307" href="#L307">307</a>         LineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> LineGraph2DRenderer(300, 200);
-<a class="jxr_linenumber" name="L308" href="#L308">308</a>         renderer.update(renderer.newUpdate().interpolation(InterpolationScheme.NEAREST_NEIGHBOUR));
+<a class="jxr_linenumber" name="L308" href="#L308">308</a>         renderer.update(renderer.newUpdate().interpolation(InterpolationScheme.NEAREST_NEIGHBOR));
 <a class="jxr_linenumber" name="L309" href="#L309">309</a>         Graphics2D graphics = (Graphics2D) image.getGraphics();
 <a class="jxr_linenumber" name="L310" href="#L310">310</a>         renderer.draw(graphics, data);
 <a class="jxr_linenumber" name="L311" href="#L311">311</a>         ImageAssert.compareImages(<span class="jxr_string">"lineGraph2D.nearestNeighbor.NaN.1"</span>, image);
@@ -324,7 +324,7 @@
 <a class="jxr_linenumber" name="L316" href="#L316">316</a>         Point2DDataset data = Point2DTestDatasets.consecNaNDataset();
 <a class="jxr_linenumber" name="L317" href="#L317">317</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(300, 200, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L318" href="#L318">318</a>         LineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> LineGraph2DRenderer(300, 200);
-<a class="jxr_linenumber" name="L319" href="#L319">319</a>         renderer.update(renderer.newUpdate().interpolation(InterpolationScheme.NEAREST_NEIGHBOUR));
+<a class="jxr_linenumber" name="L319" href="#L319">319</a>         renderer.update(renderer.newUpdate().interpolation(InterpolationScheme.NEAREST_NEIGHBOR));
 <a class="jxr_linenumber" name="L320" href="#L320">320</a>         Graphics2D graphics = (Graphics2D) image.getGraphics();
 <a class="jxr_linenumber" name="L321" href="#L321">321</a>         renderer.draw(graphics, data);
 <a class="jxr_linenumber" name="L322" href="#L322">322</a>         ImageAssert.compareImages(<span class="jxr_string">"lineGraph2D.nearestNeighbor.NaN.2"</span>, image);
@@ -511,7 +511,7 @@
 <a class="jxr_linenumber" name="L503" href="#L503">503</a>         Point2DDataset data = Point2DTestDatasets.oneNaNDataset();
 <a class="jxr_linenumber" name="L504" href="#L504">504</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(300, 200, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L505" href="#L505">505</a>         LineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> LineGraph2DRenderer(300, 200);
-<a class="jxr_linenumber" name="L506" href="#L506">506</a>         renderer.update(renderer.newUpdate().interpolation(InterpolationScheme.NEAREST_NEIGHBOUR));
+<a class="jxr_linenumber" name="L506" href="#L506">506</a>         renderer.update(renderer.newUpdate().interpolation(InterpolationScheme.NEAREST_NEIGHBOR));
 <a class="jxr_linenumber" name="L507" href="#L507">507</a>         Graphics2D graphics = (Graphics2D) image.getGraphics();
 <a class="jxr_linenumber" name="L508" href="#L508">508</a>         renderer.draw(graphics, data);
 <a class="jxr_linenumber" name="L509" href="#L509">509</a>         ImageAssert.compareImages(<span class="jxr_string">"lineGraph2D.nearestNeighborInterpolation"</span>, image);
@@ -556,7 +556,7 @@
 <a class="jxr_linenumber" name="L548" href="#L548">548</a>         Point2DDataset dataset = largeDataset;
 <a class="jxr_linenumber" name="L549" href="#L549">549</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(300, 200, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L550" href="#L550">550</a>         LineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> LineGraph2DRenderer(300, 200);
-<a class="jxr_linenumber" name="L551" href="#L551">551</a>         renderer.update(renderer.newUpdate().interpolation(InterpolationScheme.NEAREST_NEIGHBOUR)
+<a class="jxr_linenumber" name="L551" href="#L551">551</a>         renderer.update(renderer.newUpdate().interpolation(InterpolationScheme.NEAREST_NEIGHBOR)
 <a class="jxr_linenumber" name="L552" href="#L552">552</a>                 .xAxisRange(AxisRanges.absolute(10, 20)));
 <a class="jxr_linenumber" name="L553" href="#L553">553</a>         Graphics2D graphics = (Graphics2D) image.getGraphics();
 <a class="jxr_linenumber" name="L554" href="#L554">554</a>         renderer.draw(graphics, dataset);
@@ -648,7 +648,7 @@
 <a class="jxr_linenumber" name="L640" href="#L640">640</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 480, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L641" href="#L641">641</a>         Graphics2D g = (Graphics2D) image.getGraphics();
 <a class="jxr_linenumber" name="L642" href="#L642">642</a>         LineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> LineGraph2DRenderer(640, 480);
-<a class="jxr_linenumber" name="L643" href="#L643">643</a>         renderer.update(renderer.newUpdate().interpolation(InterpolationScheme.NEAREST_NEIGHBOUR));
+<a class="jxr_linenumber" name="L643" href="#L643">643</a>         renderer.update(renderer.newUpdate().interpolation(InterpolationScheme.NEAREST_NEIGHBOR));
 <a class="jxr_linenumber" name="L644" href="#L644">644</a>         renderer.draw(g, data);
 <a class="jxr_linenumber" name="L645" href="#L645">645</a> 
 <a class="jxr_linenumber" name="L646" href="#L646">646</a>         <em class="jxr_comment">//Compares to correct image</em>

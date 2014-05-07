@@ -357,7 +357,7 @@
 <a class="jxr_linenumber" name="L349" href="#L349">349</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(100, 50, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L350" href="#L350">350</a>         Graphics2D g = (Graphics2D) image.getGraphics();
 <a class="jxr_linenumber" name="L351" href="#L351">351</a>         SparklineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> SparklineGraph2DRenderer(100, 50);
-<a class="jxr_linenumber" name="L352" href="#L352">352</a>         renderer.update(renderer.newUpdate().aspectRatio(5).interpolation(InterpolationScheme.NEAREST_NEIGHBOUR));
+<a class="jxr_linenumber" name="L352" href="#L352">352</a>         renderer.update(renderer.newUpdate().aspectRatio(5).interpolation(InterpolationScheme.NEAREST_NEIGHBOR));
 <a class="jxr_linenumber" name="L353" href="#L353">353</a>         renderer.draw(g, data);
 <a class="jxr_linenumber" name="L354" href="#L354">354</a> 
 <a class="jxr_linenumber" name="L355" href="#L355">355</a>         <em class="jxr_comment">//Compares to correct image</em>
@@ -481,7 +481,7 @@
 <a class="jxr_linenumber" name="L473" href="#L473">473</a>         Point2DDataset data = Point2DTestDatasets.oneNaNDataset();
 <a class="jxr_linenumber" name="L474" href="#L474">474</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(300, 200, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L475" href="#L475">475</a>         SparklineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> SparklineGraph2DRenderer(300, 200);
-<a class="jxr_linenumber" name="L476" href="#L476">476</a>         renderer.update(renderer.newUpdate().interpolation(InterpolationScheme.NEAREST_NEIGHBOUR));
+<a class="jxr_linenumber" name="L476" href="#L476">476</a>         renderer.update(renderer.newUpdate().interpolation(InterpolationScheme.NEAREST_NEIGHBOR));
 <a class="jxr_linenumber" name="L477" href="#L477">477</a>         Graphics2D graphics = (Graphics2D) image.getGraphics();
 <a class="jxr_linenumber" name="L478" href="#L478">478</a>         renderer.draw(graphics, data);
 <a class="jxr_linenumber" name="L479" href="#L479">479</a>         ImageAssert.compareImages(<span class="jxr_string">"sparklineGraph2D.nearestNeighbor.NaN.1"</span>, image);
@@ -492,7 +492,7 @@
 <a class="jxr_linenumber" name="L484" href="#L484">484</a>         Point2DDataset data = twoNaNDataset();
 <a class="jxr_linenumber" name="L485" href="#L485">485</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(300, 200, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L486" href="#L486">486</a>         SparklineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> SparklineGraph2DRenderer(300, 200);
-<a class="jxr_linenumber" name="L487" href="#L487">487</a>         renderer.update(renderer.newUpdate().interpolation(InterpolationScheme.NEAREST_NEIGHBOUR));
+<a class="jxr_linenumber" name="L487" href="#L487">487</a>         renderer.update(renderer.newUpdate().interpolation(InterpolationScheme.NEAREST_NEIGHBOR));
 <a class="jxr_linenumber" name="L488" href="#L488">488</a>         Graphics2D graphics = (Graphics2D) image.getGraphics();
 <a class="jxr_linenumber" name="L489" href="#L489">489</a>         renderer.draw(graphics, data);
 <a class="jxr_linenumber" name="L490" href="#L490">490</a>         ImageAssert.compareImages(<span class="jxr_string">"sparklineGraph2D.nearestNeighbor.NaN.2"</span>, image);

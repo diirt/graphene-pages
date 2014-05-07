@@ -51,7 +51,7 @@
 <a class="jxr_linenumber" name="L43" href="#L43">43</a>                  start.plus(TimeDuration.ofMillis(15000))));
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>          BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(300, 200, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L45" href="#L45">45</a>          LineTimeGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> LineTimeGraph2DRenderer(300, 200);
-<a class="jxr_linenumber" name="L46" href="#L46">46</a>          renderer.update(<strong class="jxr_keyword">new</strong> LineTimeGraph2DRendererUpdate().interpolation(InterpolationScheme.NEAREST_NEIGHBOUR));
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>          renderer.update(<strong class="jxr_keyword">new</strong> LineTimeGraph2DRendererUpdate().interpolation(InterpolationScheme.NEAREST_NEIGHBOR));
 <a class="jxr_linenumber" name="L47" href="#L47">47</a>          Graphics2D graphics = (Graphics2D) image.getGraphics();
 <a class="jxr_linenumber" name="L48" href="#L48">48</a>          renderer.draw(graphics, data);
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>          ImageAssert.compareImages(<span class="jxr_string">"lineTimeGraph.1"</span>, image);
