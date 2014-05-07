@@ -28,10 +28,10 @@
 <a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_javadoccomment"> *</em>
 <a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_javadoccomment"> * @author sjdallst</em>
 <a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_javadoccomment"> */</em>
-<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../org/epics/graphene/MultiYAxisGraph2DRendererTest.html">MultiYAxisGraph2DRendererTest</a> <strong class="jxr_keyword">extends</strong> BaseGraphTest&lt;MultiYAxisGraph2DRendererUpdate, MultiYAxisGraph2DRenderer&gt; {
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../org/epics/graphene/MultiYAxisGraph2DRendererTest.html">MultiYAxisGraph2DRendererTest</a> <strong class="jxr_keyword">extends</strong> BaseGraphTest&lt;MultiAxisLineGraph2DRendererUpdate, MultiAxisLineGraph2DRenderer&gt; {
 <a class="jxr_linenumber" name="L24" href="#L24">24</a>  
 <a class="jxr_linenumber" name="L25" href="#L25">25</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_javadoccomment">     * Tests the functions in MultiYAxisGraph2DRenderer</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>  <em class="jxr_javadoccomment">     * Tests the functions in MultiAxisLineGraph2DRenderer</em>
 <a class="jxr_linenumber" name="L27" href="#L27">27</a>  <em class="jxr_javadoccomment">     */</em>
 <a class="jxr_linenumber" name="L28" href="#L28">28</a>      <strong class="jxr_keyword">public</strong> <a href="../../../org/epics/graphene/MultiYAxisGraph2DRendererTest.html">MultiYAxisGraph2DRendererTest</a>() {
 <a class="jxr_linenumber" name="L29" href="#L29">29</a>          <strong class="jxr_keyword">super</strong>(<span class="jxr_string">"multiYAxisGraph2D"</span>);
@@ -187,12 +187,12 @@
 <a class="jxr_linenumber" name="L179" href="#L179">179</a> 
 <a class="jxr_linenumber" name="L180" href="#L180">180</a> 
 <a class="jxr_linenumber" name="L181" href="#L181">181</a>     @Override
-<a class="jxr_linenumber" name="L182" href="#L182">182</a>     <strong class="jxr_keyword">public</strong> MultiYAxisGraph2DRenderer createRenderer() {
-<a class="jxr_linenumber" name="L183" href="#L183">183</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> MultiYAxisGraph2DRenderer(300, 200);
+<a class="jxr_linenumber" name="L182" href="#L182">182</a>     <strong class="jxr_keyword">public</strong> MultiAxisLineGraph2DRenderer createRenderer() {
+<a class="jxr_linenumber" name="L183" href="#L183">183</a>         <strong class="jxr_keyword">return</strong> <strong class="jxr_keyword">new</strong> MultiAxisLineGraph2DRenderer(300, 200);
 <a class="jxr_linenumber" name="L184" href="#L184">184</a>     }
 <a class="jxr_linenumber" name="L185" href="#L185">185</a> 
 <a class="jxr_linenumber" name="L186" href="#L186">186</a>     @Override
-<a class="jxr_linenumber" name="L187" href="#L187">187</a>     <strong class="jxr_keyword">public</strong> BufferedImage draw(MultiYAxisGraph2DRenderer renderer) {
+<a class="jxr_linenumber" name="L187" href="#L187">187</a>     <strong class="jxr_keyword">public</strong> BufferedImage draw(MultiAxisLineGraph2DRenderer renderer) {
 <a class="jxr_linenumber" name="L188" href="#L188">188</a>         List&lt;Point2DDataset&gt; data = linear1Dataset();
 <a class="jxr_linenumber" name="L189" href="#L189">189</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(300, 200, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L190" href="#L190">190</a>         Graphics2D g = (Graphics2D) image.getGraphics();
@@ -227,7 +227,7 @@
 <a class="jxr_linenumber" name="L219" href="#L219">219</a>         List&lt;Point2DDataset&gt; data = linear1Dataset();
 <a class="jxr_linenumber" name="L220" href="#L220">220</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 480, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L221" href="#L221">221</a>         Graphics2D g = (Graphics2D) image.getGraphics();
-<a class="jxr_linenumber" name="L222" href="#L222">222</a>         MultiYAxisGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiYAxisGraph2DRenderer(640, 480);
+<a class="jxr_linenumber" name="L222" href="#L222">222</a>         MultiAxisLineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiAxisLineGraph2DRenderer(640, 480);
 <a class="jxr_linenumber" name="L223" href="#L223">223</a>         renderer.draw(g, data);
 <a class="jxr_linenumber" name="L224" href="#L224">224</a> 
 <a class="jxr_linenumber" name="L225" href="#L225">225</a>         <em class="jxr_comment">//Compares to correct image</em>
@@ -239,7 +239,7 @@
 <a class="jxr_linenumber" name="L231" href="#L231">231</a>         List&lt;Point2DDataset&gt; data = linear2Dataset();
 <a class="jxr_linenumber" name="L232" href="#L232">232</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 480, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L233" href="#L233">233</a>         Graphics2D g = (Graphics2D) image.getGraphics();
-<a class="jxr_linenumber" name="L234" href="#L234">234</a>         MultiYAxisGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiYAxisGraph2DRenderer(640, 480);
+<a class="jxr_linenumber" name="L234" href="#L234">234</a>         MultiAxisLineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiAxisLineGraph2DRenderer(640, 480);
 <a class="jxr_linenumber" name="L235" href="#L235">235</a>         renderer.draw(g, data);
 <a class="jxr_linenumber" name="L236" href="#L236">236</a> 
 <a class="jxr_linenumber" name="L237" href="#L237">237</a>         <em class="jxr_comment">//Compares to correct image</em>
@@ -252,7 +252,7 @@
 <a class="jxr_linenumber" name="L244" href="#L244">244</a>         List&lt;Point2DDataset&gt; data = linear3Dataset();
 <a class="jxr_linenumber" name="L245" href="#L245">245</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 480, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L246" href="#L246">246</a>         Graphics2D g = (Graphics2D) image.getGraphics();
-<a class="jxr_linenumber" name="L247" href="#L247">247</a>         MultiYAxisGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiYAxisGraph2DRenderer(640, 480);
+<a class="jxr_linenumber" name="L247" href="#L247">247</a>         MultiAxisLineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiAxisLineGraph2DRenderer(640, 480);
 <a class="jxr_linenumber" name="L248" href="#L248">248</a>         renderer.draw(g, data);
 <a class="jxr_linenumber" name="L249" href="#L249">249</a> 
 <a class="jxr_linenumber" name="L250" href="#L250">250</a>         <em class="jxr_comment">//Compares to correct image</em>
@@ -264,7 +264,7 @@
 <a class="jxr_linenumber" name="L256" href="#L256">256</a>         List&lt;Point2DDataset&gt; data = linear5Dataset();
 <a class="jxr_linenumber" name="L257" href="#L257">257</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 480, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L258" href="#L258">258</a>         Graphics2D g = (Graphics2D) image.getGraphics();
-<a class="jxr_linenumber" name="L259" href="#L259">259</a>         MultiYAxisGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiYAxisGraph2DRenderer(640, 480);
+<a class="jxr_linenumber" name="L259" href="#L259">259</a>         MultiAxisLineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiAxisLineGraph2DRenderer(640, 480);
 <a class="jxr_linenumber" name="L260" href="#L260">260</a>         renderer.draw(g, data);
 <a class="jxr_linenumber" name="L261" href="#L261">261</a> 
 <a class="jxr_linenumber" name="L262" href="#L262">262</a>         <em class="jxr_comment">//Compares to correct image</em>
@@ -276,7 +276,7 @@
 <a class="jxr_linenumber" name="L268" href="#L268">268</a>         List&lt;Point2DDataset&gt; data = linear6Dataset();
 <a class="jxr_linenumber" name="L269" href="#L269">269</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 480, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L270" href="#L270">270</a>         Graphics2D g = (Graphics2D) image.getGraphics();
-<a class="jxr_linenumber" name="L271" href="#L271">271</a>         MultiYAxisGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiYAxisGraph2DRenderer(640, 480);
+<a class="jxr_linenumber" name="L271" href="#L271">271</a>         MultiAxisLineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiAxisLineGraph2DRenderer(640, 480);
 <a class="jxr_linenumber" name="L272" href="#L272">272</a>         renderer.draw(g, data);
 <a class="jxr_linenumber" name="L273" href="#L273">273</a> 
 <a class="jxr_linenumber" name="L274" href="#L274">274</a>         <em class="jxr_comment">//Compares to correct image</em>
@@ -288,7 +288,7 @@
 <a class="jxr_linenumber" name="L280" href="#L280">280</a>         List&lt;Point2DDataset&gt; data = rangeDataset();
 <a class="jxr_linenumber" name="L281" href="#L281">281</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 480, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L282" href="#L282">282</a>         Graphics2D g = (Graphics2D) image.getGraphics();
-<a class="jxr_linenumber" name="L283" href="#L283">283</a>         MultiYAxisGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiYAxisGraph2DRenderer(640, 480);
+<a class="jxr_linenumber" name="L283" href="#L283">283</a>         MultiAxisLineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiAxisLineGraph2DRenderer(640, 480);
 <a class="jxr_linenumber" name="L284" href="#L284">284</a>         renderer.draw(g, data);
 <a class="jxr_linenumber" name="L285" href="#L285">285</a> 
 <a class="jxr_linenumber" name="L286" href="#L286">286</a>         <em class="jxr_comment">//Compares to correct image</em>
@@ -300,7 +300,7 @@
 <a class="jxr_linenumber" name="L292" href="#L292">292</a>         List&lt;Point2DDataset&gt; data = rangeDataset();
 <a class="jxr_linenumber" name="L293" href="#L293">293</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 480, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L294" href="#L294">294</a>         Graphics2D g = (Graphics2D) image.getGraphics();
-<a class="jxr_linenumber" name="L295" href="#L295">295</a>         MultiYAxisGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiYAxisGraph2DRenderer(640, 480);
+<a class="jxr_linenumber" name="L295" href="#L295">295</a>         MultiAxisLineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiAxisLineGraph2DRenderer(640, 480);
 <a class="jxr_linenumber" name="L296" href="#L296">296</a>         renderer.update(renderer.newUpdate().minimumGraphWidth(600));
 <a class="jxr_linenumber" name="L297" href="#L297">297</a>         renderer.draw(g, data);
 <a class="jxr_linenumber" name="L298" href="#L298">298</a> 
@@ -313,7 +313,7 @@
 <a class="jxr_linenumber" name="L305" href="#L305">305</a>         List&lt;Point2DDataset&gt; data = rangeDataset();
 <a class="jxr_linenumber" name="L306" href="#L306">306</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 480, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L307" href="#L307">307</a>         Graphics2D g = (Graphics2D) image.getGraphics();
-<a class="jxr_linenumber" name="L308" href="#L308">308</a>         MultiYAxisGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiYAxisGraph2DRenderer(640, 480);
+<a class="jxr_linenumber" name="L308" href="#L308">308</a>         MultiAxisLineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiAxisLineGraph2DRenderer(640, 480);
 <a class="jxr_linenumber" name="L309" href="#L309">309</a>         renderer.update(renderer.newUpdate().interpolation(InterpolationScheme.LINEAR));
 <a class="jxr_linenumber" name="L310" href="#L310">310</a>         renderer.draw(g, data);
 <a class="jxr_linenumber" name="L311" href="#L311">311</a> 
@@ -326,7 +326,7 @@
 <a class="jxr_linenumber" name="L318" href="#L318">318</a>         List&lt;Point2DDataset&gt;data = linear2Dataset();
 <a class="jxr_linenumber" name="L319" href="#L319">319</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 480, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L320" href="#L320">320</a>         Graphics2D g = (Graphics2D) image.getGraphics();
-<a class="jxr_linenumber" name="L321" href="#L321">321</a>         MultiYAxisGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiYAxisGraph2DRenderer(640,480);
+<a class="jxr_linenumber" name="L321" href="#L321">321</a>         MultiAxisLineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiAxisLineGraph2DRenderer(640,480);
 <a class="jxr_linenumber" name="L322" href="#L322">322</a>         renderer.update(renderer.newUpdate().split(<strong class="jxr_keyword">true</strong>));
 <a class="jxr_linenumber" name="L323" href="#L323">323</a>         renderer.draw(g, data);
 <a class="jxr_linenumber" name="L324" href="#L324">324</a>         
@@ -340,7 +340,7 @@
 <a class="jxr_linenumber" name="L332" href="#L332">332</a>         List&lt;Point2DDataset&gt; data = linear1Dataset();
 <a class="jxr_linenumber" name="L333" href="#L333">333</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 480, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L334" href="#L334">334</a>         Graphics2D g = (Graphics2D) image.getGraphics();
-<a class="jxr_linenumber" name="L335" href="#L335">335</a>         MultiYAxisGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiYAxisGraph2DRenderer(640,480);
+<a class="jxr_linenumber" name="L335" href="#L335">335</a>         MultiAxisLineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiAxisLineGraph2DRenderer(640,480);
 <a class="jxr_linenumber" name="L336" href="#L336">336</a>         renderer.update(renderer.newUpdate().split(<strong class="jxr_keyword">true</strong>));
 <a class="jxr_linenumber" name="L337" href="#L337">337</a>         renderer.draw(g, data);
 <a class="jxr_linenumber" name="L338" href="#L338">338</a>         
@@ -355,7 +355,7 @@
 <a class="jxr_linenumber" name="L347" href="#L347">347</a>      
 <a class="jxr_linenumber" name="L348" href="#L348">348</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 480, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L349" href="#L349">349</a>         Graphics2D g = (Graphics2D) image.getGraphics();
-<a class="jxr_linenumber" name="L350" href="#L350">350</a>         MultiYAxisGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiYAxisGraph2DRenderer(640,480);
+<a class="jxr_linenumber" name="L350" href="#L350">350</a>         MultiAxisLineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiAxisLineGraph2DRenderer(640,480);
 <a class="jxr_linenumber" name="L351" href="#L351">351</a>         renderer.draw(g, data);
 <a class="jxr_linenumber" name="L352" href="#L352">352</a>     
 <a class="jxr_linenumber" name="L353" href="#L353">353</a>     }
@@ -365,7 +365,7 @@
 <a class="jxr_linenumber" name="L357" href="#L357">357</a>         List&lt;Point2DDataset&gt; data = cosine3Dataset();
 <a class="jxr_linenumber" name="L358" href="#L358">358</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 480, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L359" href="#L359">359</a>         Graphics2D g = (Graphics2D) image.getGraphics();
-<a class="jxr_linenumber" name="L360" href="#L360">360</a>         MultiYAxisGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiYAxisGraph2DRenderer(640,480);
+<a class="jxr_linenumber" name="L360" href="#L360">360</a>         MultiAxisLineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiAxisLineGraph2DRenderer(640,480);
 <a class="jxr_linenumber" name="L361" href="#L361">361</a>         renderer.update(renderer.newUpdate().split(<strong class="jxr_keyword">true</strong>));
 <a class="jxr_linenumber" name="L362" href="#L362">362</a>         renderer.draw(g, data);
 <a class="jxr_linenumber" name="L363" href="#L363">363</a>         
@@ -379,7 +379,7 @@
 <a class="jxr_linenumber" name="L371" href="#L371">371</a>         List&lt;Point2DDataset&gt; data = linear3Dataset();
 <a class="jxr_linenumber" name="L372" href="#L372">372</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 480, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L373" href="#L373">373</a>         Graphics2D g = (Graphics2D) image.getGraphics();
-<a class="jxr_linenumber" name="L374" href="#L374">374</a>         MultiYAxisGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiYAxisGraph2DRenderer(640,480);
+<a class="jxr_linenumber" name="L374" href="#L374">374</a>         MultiAxisLineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiAxisLineGraph2DRenderer(640,480);
 <a class="jxr_linenumber" name="L375" href="#L375">375</a>         renderer.update(renderer.newUpdate().split(<strong class="jxr_keyword">true</strong>));
 <a class="jxr_linenumber" name="L376" href="#L376">376</a>         renderer.draw(g, data);
 <a class="jxr_linenumber" name="L377" href="#L377">377</a>         
@@ -393,7 +393,7 @@
 <a class="jxr_linenumber" name="L385" href="#L385">385</a>         List&lt;Point2DDataset&gt;data = linear5Dataset();
 <a class="jxr_linenumber" name="L386" href="#L386">386</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 480, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L387" href="#L387">387</a>         Graphics2D g = (Graphics2D) image.getGraphics();
-<a class="jxr_linenumber" name="L388" href="#L388">388</a>         MultiYAxisGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiYAxisGraph2DRenderer(640,480);
+<a class="jxr_linenumber" name="L388" href="#L388">388</a>         MultiAxisLineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiAxisLineGraph2DRenderer(640,480);
 <a class="jxr_linenumber" name="L389" href="#L389">389</a>         renderer.update(renderer.newUpdate().split(<strong class="jxr_keyword">true</strong>));
 <a class="jxr_linenumber" name="L390" href="#L390">390</a>         renderer.draw(g, data);
 <a class="jxr_linenumber" name="L391" href="#L391">391</a>         
@@ -406,7 +406,7 @@
 <a class="jxr_linenumber" name="L398" href="#L398">398</a>         List&lt;Point2DDataset&gt;data = linear5Dataset();
 <a class="jxr_linenumber" name="L399" href="#L399">399</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 550, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L400" href="#L400">400</a>         Graphics2D g = (Graphics2D) image.getGraphics();
-<a class="jxr_linenumber" name="L401" href="#L401">401</a>         MultiYAxisGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiYAxisGraph2DRenderer(640,480);
+<a class="jxr_linenumber" name="L401" href="#L401">401</a>         MultiAxisLineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiAxisLineGraph2DRenderer(640,480);
 <a class="jxr_linenumber" name="L402" href="#L402">402</a>         renderer.update(renderer.newUpdate().imageHeight(550));
 <a class="jxr_linenumber" name="L403" href="#L403">403</a>         renderer.update(renderer.newUpdate().split(<strong class="jxr_keyword">true</strong>));
 <a class="jxr_linenumber" name="L404" href="#L404">404</a>         renderer.draw(g, data);
@@ -420,7 +420,7 @@
 <a class="jxr_linenumber" name="L412" href="#L412">412</a>         List&lt;Point2DDataset&gt;data = linear5Dataset();
 <a class="jxr_linenumber" name="L413" href="#L413">413</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 480, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L414" href="#L414">414</a>         Graphics2D g = (Graphics2D) image.getGraphics();
-<a class="jxr_linenumber" name="L415" href="#L415">415</a>         MultiYAxisGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiYAxisGraph2DRenderer(640,550);
+<a class="jxr_linenumber" name="L415" href="#L415">415</a>         MultiAxisLineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiAxisLineGraph2DRenderer(640,550);
 <a class="jxr_linenumber" name="L416" href="#L416">416</a>         renderer.update(renderer.newUpdate().imageHeight(550));
 <a class="jxr_linenumber" name="L417" href="#L417">417</a>         renderer.update(renderer.newUpdate().split(<strong class="jxr_keyword">true</strong>));
 <a class="jxr_linenumber" name="L418" href="#L418">418</a>         renderer.draw(g, data);
@@ -434,7 +434,7 @@
 <a class="jxr_linenumber" name="L426" href="#L426">426</a>         List&lt;Point2DDataset&gt; data = cosine2Dataset();
 <a class="jxr_linenumber" name="L427" href="#L427">427</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 480, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L428" href="#L428">428</a>         Graphics2D g = (Graphics2D) image.getGraphics();
-<a class="jxr_linenumber" name="L429" href="#L429">429</a>         MultiYAxisGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiYAxisGraph2DRenderer(640,480);
+<a class="jxr_linenumber" name="L429" href="#L429">429</a>         MultiAxisLineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiAxisLineGraph2DRenderer(640,480);
 <a class="jxr_linenumber" name="L430" href="#L430">430</a>         renderer.update(renderer.newUpdate().marginBetweenGraphs(50));
 <a class="jxr_linenumber" name="L431" href="#L431">431</a>         renderer.update(renderer.newUpdate().split(<strong class="jxr_keyword">true</strong>));
 <a class="jxr_linenumber" name="L432" href="#L432">432</a>         renderer.draw(g, data);
@@ -448,7 +448,7 @@
 <a class="jxr_linenumber" name="L440" href="#L440">440</a>         List&lt;Point2DDataset&gt; data = linear4Dataset();
 <a class="jxr_linenumber" name="L441" href="#L441">441</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 480, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L442" href="#L442">442</a>         Graphics2D g = (Graphics2D) image.getGraphics();
-<a class="jxr_linenumber" name="L443" href="#L443">443</a>         MultiYAxisGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiYAxisGraph2DRenderer(640,480);
+<a class="jxr_linenumber" name="L443" href="#L443">443</a>         MultiAxisLineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiAxisLineGraph2DRenderer(640,480);
 <a class="jxr_linenumber" name="L444" href="#L444">444</a>         HashMap&lt;Integer, Range&gt; map = <strong class="jxr_keyword">new</strong> HashMap&lt;Integer, Range&gt;();
 <a class="jxr_linenumber" name="L445" href="#L445">445</a>         map.put(1, RangeUtil.range(-50,50));
 <a class="jxr_linenumber" name="L446" href="#L446">446</a>         renderer.update(renderer.newUpdate().setRanges(map));
@@ -464,7 +464,7 @@
 <a class="jxr_linenumber" name="L456" href="#L456">456</a>         List&lt;Point2DDataset&gt; data = cosine3Dataset();
 <a class="jxr_linenumber" name="L457" href="#L457">457</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 480, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L458" href="#L458">458</a>         Graphics2D g = (Graphics2D) image.getGraphics();
-<a class="jxr_linenumber" name="L459" href="#L459">459</a>         MultiYAxisGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiYAxisGraph2DRenderer(640,480);
+<a class="jxr_linenumber" name="L459" href="#L459">459</a>         MultiAxisLineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiAxisLineGraph2DRenderer(640,480);
 <a class="jxr_linenumber" name="L460" href="#L460">460</a>         renderer.update(renderer.newUpdate().marginBetweenGraphs(100));
 <a class="jxr_linenumber" name="L461" href="#L461">461</a>         renderer.update(renderer.newUpdate().split(<strong class="jxr_keyword">true</strong>));
 <a class="jxr_linenumber" name="L462" href="#L462">462</a>         renderer.draw(g, data);
@@ -483,7 +483,7 @@
 <a class="jxr_linenumber" name="L475" href="#L475">475</a>         
 <a class="jxr_linenumber" name="L476" href="#L476">476</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 400, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L477" href="#L477">477</a>         Graphics2D g = (Graphics2D) image.getGraphics();
-<a class="jxr_linenumber" name="L478" href="#L478">478</a>         MultiYAxisGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiYAxisGraph2DRenderer(640,480);
+<a class="jxr_linenumber" name="L478" href="#L478">478</a>         MultiAxisLineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiAxisLineGraph2DRenderer(640,480);
 <a class="jxr_linenumber" name="L479" href="#L479">479</a>         renderer.update(renderer.newUpdate().split(<strong class="jxr_keyword">true</strong>));
 <a class="jxr_linenumber" name="L480" href="#L480">480</a>         
 <a class="jxr_linenumber" name="L481" href="#L481">481</a>         <em class="jxr_comment">// Gradually reduce the image to simulate window being stretched</em>
@@ -511,7 +511,7 @@
 <a class="jxr_linenumber" name="L503" href="#L503">503</a>         List&lt;Point2DDataset&gt; data = linear10Dataset();
 <a class="jxr_linenumber" name="L504" href="#L504">504</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 480, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L505" href="#L505">505</a>         Graphics2D g = (Graphics2D) image.getGraphics();
-<a class="jxr_linenumber" name="L506" href="#L506">506</a>         MultiYAxisGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiYAxisGraph2DRenderer(640,480);
+<a class="jxr_linenumber" name="L506" href="#L506">506</a>         MultiAxisLineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiAxisLineGraph2DRenderer(640,480);
 <a class="jxr_linenumber" name="L507" href="#L507">507</a>         renderer.update(renderer.newUpdate().minimumGraphHeight(50));
 <a class="jxr_linenumber" name="L508" href="#L508">508</a>         renderer.update(renderer.newUpdate().split(<strong class="jxr_keyword">true</strong>));
 <a class="jxr_linenumber" name="L509" href="#L509">509</a>         renderer.draw(g, data);
@@ -525,7 +525,7 @@
 <a class="jxr_linenumber" name="L517" href="#L517">517</a>         List&lt;Point2DDataset&gt; data = cosine2Dataset();
 <a class="jxr_linenumber" name="L518" href="#L518">518</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 480, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L519" href="#L519">519</a>         Graphics2D g = (Graphics2D) image.getGraphics();
-<a class="jxr_linenumber" name="L520" href="#L520">520</a>         MultiYAxisGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiYAxisGraph2DRenderer(640,480);
+<a class="jxr_linenumber" name="L520" href="#L520">520</a>         MultiAxisLineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiAxisLineGraph2DRenderer(640,480);
 <a class="jxr_linenumber" name="L521" href="#L521">521</a>         renderer.update(renderer.newUpdate().interpolation(InterpolationScheme.LINEAR));
 <a class="jxr_linenumber" name="L522" href="#L522">522</a>         renderer.update(renderer.newUpdate().split(<strong class="jxr_keyword">true</strong>));
 <a class="jxr_linenumber" name="L523" href="#L523">523</a>         renderer.draw(g, data);
