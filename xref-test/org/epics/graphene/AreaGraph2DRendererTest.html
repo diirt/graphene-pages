@@ -60,37 +60,38 @@
 <a class="jxr_linenumber" name="L52" href="#L52">52</a>          Cell1DDataset dataset = Cell1DDatasets.linearRange(<strong class="jxr_keyword">new</strong> ArrayDouble(0,5,10,5,0,5,10,0,5,10), 0, 10);
 <a class="jxr_linenumber" name="L53" href="#L53">53</a>          BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(300, 200, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L54" href="#L54">54</a>          AreaGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> AreaGraph2DRenderer(300, 200);
-<a class="jxr_linenumber" name="L55" href="#L55">55</a>          Graphics2D graphics = (Graphics2D) image.getGraphics();
-<a class="jxr_linenumber" name="L56" href="#L56">56</a>          renderer.draw(graphics, dataset);
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>          compareImages(<span class="jxr_string">"bar1DChart.2"</span>, image);
-<a class="jxr_linenumber" name="L58" href="#L58">58</a>          dataset = Cell1DDatasets.linearRange(<strong class="jxr_keyword">new</strong> ArrayDouble(0,2,3,0,4,5,0,6,7,0), 0, 10);
-<a class="jxr_linenumber" name="L59" href="#L59">59</a>          renderer.draw(graphics, dataset);
-<a class="jxr_linenumber" name="L60" href="#L60">60</a>          compareImages(<span class="jxr_string">"bar1DChart.3"</span>, image);
-<a class="jxr_linenumber" name="L61" href="#L61">61</a>      }
-<a class="jxr_linenumber" name="L62" href="#L62">62</a>      
-<a class="jxr_linenumber" name="L63" href="#L63">63</a>      @Test
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> test4() <strong class="jxr_keyword">throws</strong> Exception {
-<a class="jxr_linenumber" name="L65" href="#L65">65</a>          Cell1DDataset dataset = Cell1DDatasets.linearRange(<strong class="jxr_keyword">new</strong> ArrayDouble(0,1,2,3,4,5,6,7,8,9,10), 0, 10);
-<a class="jxr_linenumber" name="L66" href="#L66">66</a>          BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 480, BufferedImage.TYPE_3BYTE_BGR);
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>          AreaGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> AreaGraph2DRenderer(640, 480);
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>          Graphics2D graphics = (Graphics2D) image.getGraphics();
-<a class="jxr_linenumber" name="L69" href="#L69">69</a>          renderer.draw(graphics, dataset);
-<a class="jxr_linenumber" name="L70" href="#L70">70</a>          compareImages(<span class="jxr_string">"bar1DChart.4"</span>, image);
-<a class="jxr_linenumber" name="L71" href="#L71">71</a>      }
-<a class="jxr_linenumber" name="L72" href="#L72">72</a>      
-<a class="jxr_linenumber" name="L73" href="#L73">73</a>      @Test
-<a class="jxr_linenumber" name="L74" href="#L74">74</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> highlightSelection() <strong class="jxr_keyword">throws</strong> Exception {
-<a class="jxr_linenumber" name="L75" href="#L75">75</a>          Cell1DDataset dataset = Cell1DDatasets.linearRange(<strong class="jxr_keyword">new</strong> ArrayDouble(30, 14, 150, 160, 180, 230, 220, 350, 400, 450, 500,
-<a class="jxr_linenumber" name="L76" href="#L76">76</a>                                          350, 230, 180, 220, 170, 130, 80, 30, 40), 0, 2);
-<a class="jxr_linenumber" name="L77" href="#L77">77</a>          BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(300, 200, BufferedImage.TYPE_3BYTE_BGR);
-<a class="jxr_linenumber" name="L78" href="#L78">78</a>          AreaGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> AreaGraph2DRenderer(300, 200);
-<a class="jxr_linenumber" name="L79" href="#L79">79</a>          renderer.update(renderer.newUpdate().focusPixel(150).highlightFocusValue(<strong class="jxr_keyword">true</strong>));
-<a class="jxr_linenumber" name="L80" href="#L80">80</a>          Graphics2D graphics = (Graphics2D) image.getGraphics();
-<a class="jxr_linenumber" name="L81" href="#L81">81</a>          renderer.draw(graphics, dataset);
-<a class="jxr_linenumber" name="L82" href="#L82">82</a>          compareImages(<span class="jxr_string">"bar1DChart.highlightSelection"</span>, image);
-<a class="jxr_linenumber" name="L83" href="#L83">83</a>      }
-<a class="jxr_linenumber" name="L84" href="#L84">84</a>  
-<a class="jxr_linenumber" name="L85" href="#L85">85</a>  }
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>          renderer.update(renderer.newUpdate().yAxisRange(AxisRanges.integrated()));
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>          Graphics2D graphics = (Graphics2D) image.getGraphics();
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>          renderer.draw(graphics, dataset);
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>          compareImages(<span class="jxr_string">"bar1DChart.2"</span>, image);
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>          dataset = Cell1DDatasets.linearRange(<strong class="jxr_keyword">new</strong> ArrayDouble(0,2,3,0,4,5,0,6,7,0), 0, 10);
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>          renderer.draw(graphics, dataset);
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>          compareImages(<span class="jxr_string">"bar1DChart.3"</span>, image);
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>      }
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>      
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>      @Test
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> test4() <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>          Cell1DDataset dataset = Cell1DDatasets.linearRange(<strong class="jxr_keyword">new</strong> ArrayDouble(0,1,2,3,4,5,6,7,8,9,10), 0, 10);
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>          BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 480, BufferedImage.TYPE_3BYTE_BGR);
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>          AreaGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> AreaGraph2DRenderer(640, 480);
+<a class="jxr_linenumber" name="L69" href="#L69">69</a>          Graphics2D graphics = (Graphics2D) image.getGraphics();
+<a class="jxr_linenumber" name="L70" href="#L70">70</a>          renderer.draw(graphics, dataset);
+<a class="jxr_linenumber" name="L71" href="#L71">71</a>          compareImages(<span class="jxr_string">"bar1DChart.4"</span>, image);
+<a class="jxr_linenumber" name="L72" href="#L72">72</a>      }
+<a class="jxr_linenumber" name="L73" href="#L73">73</a>      
+<a class="jxr_linenumber" name="L74" href="#L74">74</a>      @Test
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> highlightSelection() <strong class="jxr_keyword">throws</strong> Exception {
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>          Cell1DDataset dataset = Cell1DDatasets.linearRange(<strong class="jxr_keyword">new</strong> ArrayDouble(30, 14, 150, 160, 180, 230, 220, 350, 400, 450, 500,
+<a class="jxr_linenumber" name="L77" href="#L77">77</a>                                          350, 230, 180, 220, 170, 130, 80, 30, 40), 0, 2);
+<a class="jxr_linenumber" name="L78" href="#L78">78</a>          BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(300, 200, BufferedImage.TYPE_3BYTE_BGR);
+<a class="jxr_linenumber" name="L79" href="#L79">79</a>          AreaGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> AreaGraph2DRenderer(300, 200);
+<a class="jxr_linenumber" name="L80" href="#L80">80</a>          renderer.update(renderer.newUpdate().focusPixel(150).highlightFocusValue(<strong class="jxr_keyword">true</strong>));
+<a class="jxr_linenumber" name="L81" href="#L81">81</a>          Graphics2D graphics = (Graphics2D) image.getGraphics();
+<a class="jxr_linenumber" name="L82" href="#L82">82</a>          renderer.draw(graphics, dataset);
+<a class="jxr_linenumber" name="L83" href="#L83">83</a>          compareImages(<span class="jxr_string">"bar1DChart.highlightSelection"</span>, image);
+<a class="jxr_linenumber" name="L84" href="#L84">84</a>      }
+<a class="jxr_linenumber" name="L85" href="#L85">85</a>  
+<a class="jxr_linenumber" name="L86" href="#L86">86</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2012&#x2013;2014 Brookhaven National Laboratory, University of Michigan. All rights reserved.</div>
