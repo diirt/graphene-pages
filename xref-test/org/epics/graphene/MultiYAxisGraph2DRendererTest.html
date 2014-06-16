@@ -12,16 +12,16 @@
 <a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_javadoccomment"> */</em>
 <a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">package</strong> org.epics.graphene;
 <a class="jxr_linenumber" name="L6" href="#L6">6</a>   
-<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> java.awt.Graphics2D;
-<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> java.awt.image.BufferedImage;
-<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> java.util.Random;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> org.epics.util.stats.Range;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> java.awt.Graphics2D;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> java.awt.image.BufferedImage;
 <a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> java.util.ArrayList;
 <a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> java.util.HashMap;
 <a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> org.junit.AfterClass;
 <a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">import</strong> org.junit.Test;
 <a class="jxr_linenumber" name="L14" href="#L14">14</a>  <strong class="jxr_keyword">import</strong> java.util.List;
 <a class="jxr_linenumber" name="L15" href="#L15">15</a>  <strong class="jxr_keyword">import</strong> org.junit.BeforeClass;
-<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">import</strong> org.epics.util.array.*;
+<a class="jxr_linenumber" name="L16" href="#L16">16</a>  <strong class="jxr_keyword">import</strong> org.epics.util.stats.Ranges;
 <a class="jxr_linenumber" name="L17" href="#L17">17</a>  <strong class="jxr_keyword">import</strong> org.junit.Ignore;
 <a class="jxr_linenumber" name="L18" href="#L18">18</a>  
 <a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_javadoccomment">/**</em>
@@ -450,7 +450,7 @@
 <a class="jxr_linenumber" name="L442" href="#L442">442</a>         Graphics2D g = (Graphics2D) image.getGraphics();
 <a class="jxr_linenumber" name="L443" href="#L443">443</a>         MultiAxisLineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> MultiAxisLineGraph2DRenderer(640,480);
 <a class="jxr_linenumber" name="L444" href="#L444">444</a>         HashMap&lt;Integer, Range&gt; map = <strong class="jxr_keyword">new</strong> HashMap&lt;Integer, Range&gt;();
-<a class="jxr_linenumber" name="L445" href="#L445">445</a>         map.put(1, RangeUtil.range(-50,50));
+<a class="jxr_linenumber" name="L445" href="#L445">445</a>         map.put(1, Ranges.range(-50,50));
 <a class="jxr_linenumber" name="L446" href="#L446">446</a>         renderer.update(renderer.newUpdate().setRanges(map));
 <a class="jxr_linenumber" name="L447" href="#L447">447</a>         renderer.update(renderer.newUpdate().separateAreas(<strong class="jxr_keyword">true</strong>));
 <a class="jxr_linenumber" name="L448" href="#L448">448</a>         renderer.draw(g, data);
@@ -478,7 +478,7 @@
 <a class="jxr_linenumber" name="L470" href="#L470">470</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> resizing() <strong class="jxr_keyword">throws</strong> Exception {
 <a class="jxr_linenumber" name="L471" href="#L471">471</a>         List&lt;Point2DDataset&gt; data = <strong class="jxr_keyword">new</strong> ArrayList&lt;Point2DDataset&gt;();
 <a class="jxr_linenumber" name="L472" href="#L472">472</a>         <strong class="jxr_keyword">for</strong>(<strong class="jxr_keyword">int</strong> i = 0; i &lt; 3; i++){
-<a class="jxr_linenumber" name="L473" href="#L473">473</a>             data.add(Point2DTestDatasets.sineDataset(100, 50, 0, 1, 0, RangeUtil.range(0, 99)));
+<a class="jxr_linenumber" name="L473" href="#L473">473</a>             data.add(Point2DTestDatasets.sineDataset(100, 50, 0, 1, 0, Ranges.range(0, 99)));
 <a class="jxr_linenumber" name="L474" href="#L474">474</a>         }
 <a class="jxr_linenumber" name="L475" href="#L475">475</a>         
 <a class="jxr_linenumber" name="L476" href="#L476">476</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(640, 400, BufferedImage.TYPE_3BYTE_BGR);

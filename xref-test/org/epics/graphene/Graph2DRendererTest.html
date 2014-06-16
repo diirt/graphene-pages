@@ -12,12 +12,12 @@
 <a class="jxr_linenumber" name="L4" href="#L4">4</a>   <em class="jxr_javadoccomment"> */</em>
 <a class="jxr_linenumber" name="L5" href="#L5">5</a>   <strong class="jxr_keyword">package</strong> org.epics.graphene;
 <a class="jxr_linenumber" name="L6" href="#L6">6</a>   
-<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> java.awt.Color;
-<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> java.awt.Graphics2D;
-<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> java.awt.image.BufferedImage;
-<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> java.util.Arrays;
-<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> java.util.Collections;
-<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> org.epics.util.array.ArrayDouble;
+<a class="jxr_linenumber" name="L7" href="#L7">7</a>   <strong class="jxr_keyword">import</strong> java.awt.Graphics2D;
+<a class="jxr_linenumber" name="L8" href="#L8">8</a>   <strong class="jxr_keyword">import</strong> java.awt.image.BufferedImage;
+<a class="jxr_linenumber" name="L9" href="#L9">9</a>   <strong class="jxr_keyword">import</strong> java.util.Arrays;
+<a class="jxr_linenumber" name="L10" href="#L10">10</a>  <strong class="jxr_keyword">import</strong> java.util.Collections;
+<a class="jxr_linenumber" name="L11" href="#L11">11</a>  <strong class="jxr_keyword">import</strong> org.epics.util.array.ArrayDouble;
+<a class="jxr_linenumber" name="L12" href="#L12">12</a>  <strong class="jxr_keyword">import</strong> org.epics.util.stats.Ranges;
 <a class="jxr_linenumber" name="L13" href="#L13">13</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.hamcrest.Matchers.*;
 <a class="jxr_linenumber" name="L14" href="#L14">14</a>  <strong class="jxr_keyword">import</strong> <strong class="jxr_keyword">static</strong> org.junit.Assert.*;
 <a class="jxr_linenumber" name="L15" href="#L15">15</a>  <strong class="jxr_keyword">import</strong> org.junit.Test;
@@ -162,7 +162,7 @@
 <a class="jxr_linenumber" name="L154" href="#L154">154</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(300, 200, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L155" href="#L155">155</a>         Graphics2D graphics = (Graphics2D) image.getGraphics();
 <a class="jxr_linenumber" name="L156" href="#L156">156</a>         renderer.g = graphics;
-<a class="jxr_linenumber" name="L157" href="#L157">157</a>         renderer.calculateRanges(RangeUtil.range(0, 10), RangeUtil.range(0, 10));
+<a class="jxr_linenumber" name="L157" href="#L157">157</a>         renderer.calculateRanges(Ranges.range(0, 10), Ranges.range(0, 10));
 <a class="jxr_linenumber" name="L158" href="#L158">158</a>         renderer.calculateLabels();
 <a class="jxr_linenumber" name="L159" href="#L159">159</a>         renderer.calculateGraphArea();
 <a class="jxr_linenumber" name="L160" href="#L160">160</a>         renderer.drawBackground();
@@ -183,7 +183,7 @@
 <a class="jxr_linenumber" name="L175" href="#L175">175</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(300, 200, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L176" href="#L176">176</a>         Graphics2D graphics = (Graphics2D) image.getGraphics();
 <a class="jxr_linenumber" name="L177" href="#L177">177</a>         renderer.g = graphics;
-<a class="jxr_linenumber" name="L178" href="#L178">178</a>         renderer.calculateRanges(RangeUtil.range(0, 10), RangeUtil.range(3, 3));
+<a class="jxr_linenumber" name="L178" href="#L178">178</a>         renderer.calculateRanges(Ranges.range(0, 10), Ranges.range(3, 3));
 <a class="jxr_linenumber" name="L179" href="#L179">179</a>         renderer.calculateLabels();
 <a class="jxr_linenumber" name="L180" href="#L180">180</a>         renderer.calculateGraphArea();
 <a class="jxr_linenumber" name="L181" href="#L181">181</a>         renderer.drawBackground();
@@ -204,7 +204,7 @@
 <a class="jxr_linenumber" name="L196" href="#L196">196</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(300, 200, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L197" href="#L197">197</a>         Graphics2D graphics = (Graphics2D) image.getGraphics();
 <a class="jxr_linenumber" name="L198" href="#L198">198</a>         renderer.g = graphics;
-<a class="jxr_linenumber" name="L199" href="#L199">199</a>         renderer.calculateRanges(RangeUtil.range(3, 3), RangeUtil.range(0, 10));
+<a class="jxr_linenumber" name="L199" href="#L199">199</a>         renderer.calculateRanges(Ranges.range(3, 3), Ranges.range(0, 10));
 <a class="jxr_linenumber" name="L200" href="#L200">200</a>         renderer.calculateLabels();
 <a class="jxr_linenumber" name="L201" href="#L201">201</a>         renderer.calculateGraphArea();   
 <a class="jxr_linenumber" name="L202" href="#L202">202</a>         renderer.drawBackground();
@@ -227,7 +227,7 @@
 <a class="jxr_linenumber" name="L219" href="#L219">219</a>         renderer.g = graphics;
 <a class="jxr_linenumber" name="L220" href="#L220">220</a>         renderer.xPointMargin = 2.5;
 <a class="jxr_linenumber" name="L221" href="#L221">221</a>         renderer.yPointMargin = 2.5;
-<a class="jxr_linenumber" name="L222" href="#L222">222</a>         renderer.calculateRanges(RangeUtil.range(0, 10), RangeUtil.range(0, 10));
+<a class="jxr_linenumber" name="L222" href="#L222">222</a>         renderer.calculateRanges(Ranges.range(0, 10), Ranges.range(0, 10));
 <a class="jxr_linenumber" name="L223" href="#L223">223</a>         renderer.calculateLabels();
 <a class="jxr_linenumber" name="L224" href="#L224">224</a>         renderer.calculateGraphArea();   
 <a class="jxr_linenumber" name="L225" href="#L225">225</a>         renderer.drawBackground();
@@ -330,7 +330,7 @@
 <a class="jxr_linenumber" name="L322" href="#L322">322</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(300, 200, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L323" href="#L323">323</a>         Graphics2D graphics = (Graphics2D) image.getGraphics();
 <a class="jxr_linenumber" name="L324" href="#L324">324</a>         renderer.g = graphics;
-<a class="jxr_linenumber" name="L325" href="#L325">325</a>         renderer.calculateRanges(RangeUtil.range(2.5, 4.5), data.getYStatistics());
+<a class="jxr_linenumber" name="L325" href="#L325">325</a>         renderer.calculateRanges(Ranges.range(2.5, 4.5), data.getYStatistics());
 <a class="jxr_linenumber" name="L326" href="#L326">326</a>         renderer.calculateLabels();
 <a class="jxr_linenumber" name="L327" href="#L327">327</a>         renderer.drawValueExplicitLine(data.getXValues(), data.getYValues(), InterpolationScheme.LINEAR, ReductionScheme.NONE);
 <a class="jxr_linenumber" name="L328" href="#L328">328</a>     }
@@ -354,7 +354,7 @@
 <a class="jxr_linenumber" name="L346" href="#L346">346</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(300, 200, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L347" href="#L347">347</a>         Graphics2D graphics = (Graphics2D) image.getGraphics();
 <a class="jxr_linenumber" name="L348" href="#L348">348</a>         renderer.g = graphics;
-<a class="jxr_linenumber" name="L349" href="#L349">349</a>         renderer.calculateRanges(RangeUtil.range(2.5, 4.5), data.getYStatistics());
+<a class="jxr_linenumber" name="L349" href="#L349">349</a>         renderer.calculateRanges(Ranges.range(2.5, 4.5), data.getYStatistics());
 <a class="jxr_linenumber" name="L350" href="#L350">350</a>         renderer.calculateLabels();
 <a class="jxr_linenumber" name="L351" href="#L351">351</a>         renderer.drawValueExplicitLine(data.getXValues(), data.getYValues(), InterpolationScheme.LINEAR, ReductionScheme.FIRST_MAX_MIN_LAST);
 <a class="jxr_linenumber" name="L352" href="#L352">352</a>     }

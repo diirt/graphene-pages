@@ -60,7 +60,7 @@
 <a class="jxr_linenumber" name="L52" href="#L52">52</a>          Cell1DDataset dataset = Cell1DDatasets.linearRange(<strong class="jxr_keyword">new</strong> ArrayDouble(0,5,10,5,0,5,10,0,5,10), 0, 10);
 <a class="jxr_linenumber" name="L53" href="#L53">53</a>          BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(300, 200, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L54" href="#L54">54</a>          AreaGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> AreaGraph2DRenderer(300, 200);
-<a class="jxr_linenumber" name="L55" href="#L55">55</a>          renderer.update(renderer.newUpdate().yAxisRange(AxisRanges.integrated()));
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>          renderer.update(renderer.newUpdate().yAxisRange(AxisRanges.integrated(0.0)));
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>          Graphics2D graphics = (Graphics2D) image.getGraphics();
 <a class="jxr_linenumber" name="L57" href="#L57">57</a>          renderer.draw(graphics, dataset);
 <a class="jxr_linenumber" name="L58" href="#L58">58</a>          compareImages(<span class="jxr_string">"bar1DChart.2"</span>, image);
