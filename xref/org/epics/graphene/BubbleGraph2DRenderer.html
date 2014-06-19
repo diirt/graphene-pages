@@ -26,7 +26,7 @@
 <a class="jxr_linenumber" name="L18" href="#L18">18</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">class</strong> <a href="../../../org/epics/graphene/BubbleGraph2DRenderer.html">BubbleGraph2DRenderer</a> <strong class="jxr_keyword">extends</strong> Graph2DRenderer&lt;BubbleGraph2DRendererUpdate&gt; {
 <a class="jxr_linenumber" name="L19" href="#L19">19</a>      
 <a class="jxr_linenumber" name="L20" href="#L20">20</a>      <strong class="jxr_keyword">private</strong> Range zAggregatedRange;
-<a class="jxr_linenumber" name="L21" href="#L21">21</a>      <strong class="jxr_keyword">private</strong> <a href="../../../org/epics/graphene/AxisRangeInstance.html">AxisRangeInstance</a> zAxisRange = AxisRanges.integrated().createInstance();
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>      <strong class="jxr_keyword">private</strong> <a href="../../../org/epics/graphene/AxisRangeInstance.html">AxisRangeInstance</a> zAxisRange = AxisRanges.display().createInstance();
 <a class="jxr_linenumber" name="L22" href="#L22">22</a>      <strong class="jxr_keyword">private</strong> Range zPlotRange;
 <a class="jxr_linenumber" name="L23" href="#L23">23</a>      <strong class="jxr_keyword">private</strong> Integer focusPixelX;
 <a class="jxr_linenumber" name="L24" href="#L24">24</a>      <strong class="jxr_keyword">private</strong> Integer focusPixelY;
@@ -52,25 +52,25 @@
 <a class="jxr_linenumber" name="L44" href="#L44">44</a>          }
 <a class="jxr_linenumber" name="L45" href="#L45">45</a>      }
 <a class="jxr_linenumber" name="L46" href="#L46">46</a>  
-<a class="jxr_linenumber" name="L47" href="#L47">47</a>      <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> calculateRanges(Range xDataRange, Range yDataRange, Range zDataRange) {
-<a class="jxr_linenumber" name="L48" href="#L48">48</a>          <strong class="jxr_keyword">super</strong>.calculateRanges(xDataRange, yDataRange);
-<a class="jxr_linenumber" name="L49" href="#L49">49</a>          zAggregatedRange = aggregateRange(zDataRange, zAggregatedRange);
-<a class="jxr_linenumber" name="L50" href="#L50">50</a>          <em class="jxr_comment">// TODO: should be update to use display range</em>
-<a class="jxr_linenumber" name="L51" href="#L51">51</a>          zPlotRange = zAxisRange.axisRange(zDataRange, zDataRange);
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>      }
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>  
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L55" href="#L55">55</a>  <em class="jxr_javadoccomment">     *Draws a bubble graph on the given Graphics2D context using the given data.</em>
-<a class="jxr_linenumber" name="L56" href="#L56">56</a>  <em class="jxr_javadoccomment">     * @param g Graphics2D context, can not be null.</em>
-<a class="jxr_linenumber" name="L57" href="#L57">57</a>  <em class="jxr_javadoccomment">     * @param data consists of x, y, and z coordinates, as well as labels. x and y correspond to position on the graph. </em>
-<a class="jxr_linenumber" name="L58" href="#L58">58</a>  <em class="jxr_javadoccomment">     * z corresponds to the diameter of the circle, and the label corresponds to the color.</em>
-<a class="jxr_linenumber" name="L59" href="#L59">59</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L60" href="#L60">60</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> draw(Graphics2D g, <a href="../../../org/epics/graphene/Point3DWithLabelDataset.html">Point3DWithLabelDataset</a> data) {
-<a class="jxr_linenumber" name="L61" href="#L61">61</a>          <strong class="jxr_keyword">if</strong>(g == <strong class="jxr_keyword">null</strong>)
-<a class="jxr_linenumber" name="L62" href="#L62">62</a>              <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> NullPointerException(<span class="jxr_string">"g is null"</span>);
-<a class="jxr_linenumber" name="L63" href="#L63">63</a>          <strong class="jxr_keyword">this</strong>.g = g;
-<a class="jxr_linenumber" name="L64" href="#L64">64</a>          
-<a class="jxr_linenumber" name="L65" href="#L65">65</a>          calculateRanges(data.getXStatistics(), data.getYStatistics(), data.getZStatistics());
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>      <strong class="jxr_keyword">protected</strong> <strong class="jxr_keyword">void</strong> calculateRanges(Range xDataRange, Range xDisplayRange, Range yDataRange, Range yDisplayRange, Range zDataRange, Range zDisplayRange) {
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>          <strong class="jxr_keyword">super</strong>.calculateRanges(xDataRange, xDisplayRange, yDataRange, yDisplayRange);
+<a class="jxr_linenumber" name="L49" href="#L49">49</a>          zPlotRange = zAxisRange.axisRange(zDataRange, zDisplayRange);
+<a class="jxr_linenumber" name="L50" href="#L50">50</a>      }
+<a class="jxr_linenumber" name="L51" href="#L51">51</a>  
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>  <em class="jxr_javadoccomment">     *Draws a bubble graph on the given Graphics2D context using the given data.</em>
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>  <em class="jxr_javadoccomment">     * @param g Graphics2D context, can not be null.</em>
+<a class="jxr_linenumber" name="L55" href="#L55">55</a>  <em class="jxr_javadoccomment">     * @param data consists of x, y, and z coordinates, as well as labels. x and y correspond to position on the graph. </em>
+<a class="jxr_linenumber" name="L56" href="#L56">56</a>  <em class="jxr_javadoccomment">     * z corresponds to the diameter of the circle, and the label corresponds to the color.</em>
+<a class="jxr_linenumber" name="L57" href="#L57">57</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L58" href="#L58">58</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> draw(Graphics2D g, <a href="../../../org/epics/graphene/Point3DWithLabelDataset.html">Point3DWithLabelDataset</a> data) {
+<a class="jxr_linenumber" name="L59" href="#L59">59</a>          <strong class="jxr_keyword">if</strong>(g == <strong class="jxr_keyword">null</strong>)
+<a class="jxr_linenumber" name="L60" href="#L60">60</a>              <strong class="jxr_keyword">throw</strong> <strong class="jxr_keyword">new</strong> NullPointerException(<span class="jxr_string">"g is null"</span>);
+<a class="jxr_linenumber" name="L61" href="#L61">61</a>          <strong class="jxr_keyword">this</strong>.g = g;
+<a class="jxr_linenumber" name="L62" href="#L62">62</a>          
+<a class="jxr_linenumber" name="L63" href="#L63">63</a>          calculateRanges(data.getXStatistics(), data.getXDisplayRange(),
+<a class="jxr_linenumber" name="L64" href="#L64">64</a>                  data.getYStatistics(), data.getYDisplayRange(),
+<a class="jxr_linenumber" name="L65" href="#L65">65</a>                  data.getZStatistics(), data.getZDisplayRange());
 <a class="jxr_linenumber" name="L66" href="#L66">66</a>          
 <a class="jxr_linenumber" name="L67" href="#L67">67</a>          drawBackground();
 <a class="jxr_linenumber" name="L68" href="#L68">68</a>          calculateLabels();
