@@ -22,25 +22,38 @@
 <a class="jxr_linenumber" name="L14" href="#L14">14</a>  <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">interface</strong> <a href="../../../org/epics/graphene/ValueScale.html">ValueScale</a> {
 <a class="jxr_linenumber" name="L15" href="#L15">15</a>      
 <a class="jxr_linenumber" name="L16" href="#L16">16</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_javadoccomment">     * Scales the value from range A to range B.</em>
-<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_javadoccomment">     * @param value original value in original range</em>
-<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_javadoccomment">     * @param minValue original range min</em>
-<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_javadoccomment">     * @param maxValue original range max</em>
-<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_javadoccomment">     * @param newMinValue new range min</em>
-<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_javadoccomment">     * @param newMaxValue new range max</em>
-<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <em class="jxr_javadoccomment">     * @return new value in new range</em>
-<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L25" href="#L25">25</a>      <strong class="jxr_keyword">double</strong> scaleValue(<strong class="jxr_keyword">double</strong> value, <strong class="jxr_keyword">double</strong> minValue, <strong class="jxr_keyword">double</strong> maxValue, <strong class="jxr_keyword">double</strong> newMinValue, <strong class="jxr_keyword">double</strong> newMaxValue);
-<a class="jxr_linenumber" name="L26" href="#L26">26</a>      
-<a class="jxr_linenumber" name="L27" href="#L27">27</a>      <em class="jxr_javadoccomment">/**</em>
-<a class="jxr_linenumber" name="L28" href="#L28">28</a>  <em class="jxr_javadoccomment">     * Returns the reference axes for a given range</em>
-<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_javadoccomment">     * @param range the range of values to create a reference axis for</em>
-<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_javadoccomment">     * @param minRefs minimum references</em>
-<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <em class="jxr_javadoccomment">     * @param maxRegs max references</em>
-<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_javadoccomment">     * @return reference axes</em>
-<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <em class="jxr_javadoccomment">     */</em>
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>      <a href="../../../org/epics/graphene/ValueAxis.html">ValueAxis</a> references(Range range, <strong class="jxr_keyword">int</strong> minRefs, <strong class="jxr_keyword">int</strong> maxRegs);
-<a class="jxr_linenumber" name="L35" href="#L35">35</a>  }
+<a class="jxr_linenumber" name="L17" href="#L17">17</a>  <em class="jxr_javadoccomment">     * Scales the actual value to the scale value.</em>
+<a class="jxr_linenumber" name="L18" href="#L18">18</a>  <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L19" href="#L19">19</a>  <em class="jxr_javadoccomment">     * @param value actual value to be scaled</em>
+<a class="jxr_linenumber" name="L20" href="#L20">20</a>  <em class="jxr_javadoccomment">     * @param minValue actual range min</em>
+<a class="jxr_linenumber" name="L21" href="#L21">21</a>  <em class="jxr_javadoccomment">     * @param maxValue actual range max</em>
+<a class="jxr_linenumber" name="L22" href="#L22">22</a>  <em class="jxr_javadoccomment">     * @param newMinValue scale range min</em>
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>  <em class="jxr_javadoccomment">     * @param newMaxValue scale range max</em>
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>  <em class="jxr_javadoccomment">     * @return new value in the scale</em>
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L26" href="#L26">26</a>      <strong class="jxr_keyword">double</strong> scaleValue(<strong class="jxr_keyword">double</strong> value, <strong class="jxr_keyword">double</strong> minValue, <strong class="jxr_keyword">double</strong> maxValue, <strong class="jxr_keyword">double</strong> newMinValue, <strong class="jxr_keyword">double</strong> newMaxValue);
+<a class="jxr_linenumber" name="L27" href="#L27">27</a>      
+<a class="jxr_linenumber" name="L28" href="#L28">28</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L29" href="#L29">29</a>  <em class="jxr_javadoccomment">     * Scales the scale value to the actual value.</em>
+<a class="jxr_linenumber" name="L30" href="#L30">30</a>  <em class="jxr_javadoccomment">     * </em>
+<a class="jxr_linenumber" name="L31" href="#L31">31</a>  <em class="jxr_javadoccomment">     * @param scaleValue scale value to be scaled</em>
+<a class="jxr_linenumber" name="L32" href="#L32">32</a>  <em class="jxr_javadoccomment">     * @param minValue actual range min</em>
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>  <em class="jxr_javadoccomment">     * @param maxValue actual range max</em>
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>  <em class="jxr_javadoccomment">     * @param newMinValue scale range min</em>
+<a class="jxr_linenumber" name="L35" href="#L35">35</a>  <em class="jxr_javadoccomment">     * @param newMaxValue scale range max</em>
+<a class="jxr_linenumber" name="L36" href="#L36">36</a>  <em class="jxr_javadoccomment">     * @return new value in the actual range</em>
+<a class="jxr_linenumber" name="L37" href="#L37">37</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L38" href="#L38">38</a>      <strong class="jxr_keyword">double</strong> invScaleValue(<strong class="jxr_keyword">double</strong> scaleValue, <strong class="jxr_keyword">double</strong> minValue, <strong class="jxr_keyword">double</strong> maxValue, <strong class="jxr_keyword">double</strong> newMinValue, <strong class="jxr_keyword">double</strong> newMaxValue);
+<a class="jxr_linenumber" name="L39" href="#L39">39</a>      
+<a class="jxr_linenumber" name="L40" href="#L40">40</a>      <em class="jxr_javadoccomment">/**</em>
+<a class="jxr_linenumber" name="L41" href="#L41">41</a>  <em class="jxr_javadoccomment">     * Returns the reference axes for a given range</em>
+<a class="jxr_linenumber" name="L42" href="#L42">42</a>  <em class="jxr_javadoccomment">     * @param range the range of values to create a reference axis for</em>
+<a class="jxr_linenumber" name="L43" href="#L43">43</a>  <em class="jxr_javadoccomment">     * @param minRefs minimum references</em>
+<a class="jxr_linenumber" name="L44" href="#L44">44</a>  <em class="jxr_javadoccomment">     * @param maxRegs max references</em>
+<a class="jxr_linenumber" name="L45" href="#L45">45</a>  <em class="jxr_javadoccomment">     * @return reference axes</em>
+<a class="jxr_linenumber" name="L46" href="#L46">46</a>  <em class="jxr_javadoccomment">     */</em>
+<a class="jxr_linenumber" name="L47" href="#L47">47</a>      <a href="../../../org/epics/graphene/ValueAxis.html">ValueAxis</a> references(Range range, <strong class="jxr_keyword">int</strong> minRefs, <strong class="jxr_keyword">int</strong> maxRegs);
+<a class="jxr_linenumber" name="L48" href="#L48">48</a>  }
 </pre>
 <hr/>
 <div id="footer">Copyright &#169; 2012&#x2013;2014 Brookhaven National Laboratory, University of Michigan. All rights reserved.</div>
