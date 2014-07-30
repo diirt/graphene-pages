@@ -353,28 +353,28 @@
 <a class="jxr_linenumber" name="L345" href="#L345">345</a>         renderer.draw(graphBuffer, data);
 <a class="jxr_linenumber" name="L346" href="#L346">346</a>         ImageAssert.compareImages(<span class="jxr_string">"intensityGraph2D.smallCellsZoomInAndOut.1"</span>, graphBuffer.getImage());
 <a class="jxr_linenumber" name="L347" href="#L347">347</a>         
-<a class="jxr_linenumber" name="L348" href="#L348">348</a>         renderer.update(renderer.newUpdate().xAxisRange(AxisRanges.absolute(20, 80))
-<a class="jxr_linenumber" name="L349" href="#L349">349</a>                 .yAxisRange(AxisRanges.absolute(20, 80)));
+<a class="jxr_linenumber" name="L348" href="#L348">348</a>         renderer.update(renderer.newUpdate().xAxisRange(AxisRanges.fixed(20, 80))
+<a class="jxr_linenumber" name="L349" href="#L349">349</a>                 .yAxisRange(AxisRanges.fixed(20, 80)));
 <a class="jxr_linenumber" name="L350" href="#L350">350</a>         renderer.draw(graphBuffer, data);
 <a class="jxr_linenumber" name="L351" href="#L351">351</a>         ImageAssert.compareImages(<span class="jxr_string">"intensityGraph2D.smallCellsZoomInAndOut.2"</span>, graphBuffer.getImage());
 <a class="jxr_linenumber" name="L352" href="#L352">352</a>         
-<a class="jxr_linenumber" name="L353" href="#L353">353</a>         renderer.update(renderer.newUpdate().xAxisRange(AxisRanges.absolute(0, 100))
-<a class="jxr_linenumber" name="L354" href="#L354">354</a>                 .yAxisRange(AxisRanges.absolute(0, 100)));
+<a class="jxr_linenumber" name="L353" href="#L353">353</a>         renderer.update(renderer.newUpdate().xAxisRange(AxisRanges.fixed(0, 100))
+<a class="jxr_linenumber" name="L354" href="#L354">354</a>                 .yAxisRange(AxisRanges.fixed(0, 100)));
 <a class="jxr_linenumber" name="L355" href="#L355">355</a>         renderer.draw(graphBuffer, data);
 <a class="jxr_linenumber" name="L356" href="#L356">356</a>         ImageAssert.compareImages(<span class="jxr_string">"intensityGraph2D.smallCellsZoomInAndOut.1"</span>, graphBuffer.getImage());
 <a class="jxr_linenumber" name="L357" href="#L357">357</a>         
-<a class="jxr_linenumber" name="L358" href="#L358">358</a>         renderer.update(renderer.newUpdate().xAxisRange(AxisRanges.absolute(-20, 120))
-<a class="jxr_linenumber" name="L359" href="#L359">359</a>                 .yAxisRange(AxisRanges.absolute(-20, 120)));
+<a class="jxr_linenumber" name="L358" href="#L358">358</a>         renderer.update(renderer.newUpdate().xAxisRange(AxisRanges.fixed(-20, 120))
+<a class="jxr_linenumber" name="L359" href="#L359">359</a>                 .yAxisRange(AxisRanges.fixed(-20, 120)));
 <a class="jxr_linenumber" name="L360" href="#L360">360</a>         renderer.draw(graphBuffer, data);
 <a class="jxr_linenumber" name="L361" href="#L361">361</a>         ImageAssert.compareImages(<span class="jxr_string">"intensityGraph2D.smallCellsZoomInAndOut.3"</span>, graphBuffer.getImage());
 <a class="jxr_linenumber" name="L362" href="#L362">362</a>         
-<a class="jxr_linenumber" name="L363" href="#L363">363</a>         renderer.update(renderer.newUpdate().xAxisRange(AxisRanges.absolute(-20, 120))
-<a class="jxr_linenumber" name="L364" href="#L364">364</a>                 .yAxisRange(AxisRanges.absolute(40, 60)));
+<a class="jxr_linenumber" name="L363" href="#L363">363</a>         renderer.update(renderer.newUpdate().xAxisRange(AxisRanges.fixed(-20, 120))
+<a class="jxr_linenumber" name="L364" href="#L364">364</a>                 .yAxisRange(AxisRanges.fixed(40, 60)));
 <a class="jxr_linenumber" name="L365" href="#L365">365</a>         renderer.draw(graphBuffer, data);
 <a class="jxr_linenumber" name="L366" href="#L366">366</a>         ImageAssert.compareImages(<span class="jxr_string">"intensityGraph2D.smallCellsZoomInAndOut.4"</span>, graphBuffer.getImage());
 <a class="jxr_linenumber" name="L367" href="#L367">367</a>         
-<a class="jxr_linenumber" name="L368" href="#L368">368</a>         renderer.update(renderer.newUpdate().xAxisRange(AxisRanges.absolute(20, 40))
-<a class="jxr_linenumber" name="L369" href="#L369">369</a>                 .yAxisRange(AxisRanges.absolute(-40, 120)));
+<a class="jxr_linenumber" name="L368" href="#L368">368</a>         renderer.update(renderer.newUpdate().xAxisRange(AxisRanges.fixed(20, 40))
+<a class="jxr_linenumber" name="L369" href="#L369">369</a>                 .yAxisRange(AxisRanges.fixed(-40, 120)));
 <a class="jxr_linenumber" name="L370" href="#L370">370</a>         renderer.draw(graphBuffer, data);
 <a class="jxr_linenumber" name="L371" href="#L371">371</a>         ImageAssert.compareImages(<span class="jxr_string">"intensityGraph2D.smallCellsZoomInAndOut.5"</span>, graphBuffer.getImage());
 <a class="jxr_linenumber" name="L372" href="#L372">372</a>     }
@@ -389,14 +389,14 @@
 <a class="jxr_linenumber" name="L381" href="#L381">381</a>         ImageAssert.compareImages(<span class="jxr_string">"intensityGraph2D.nonlinearBoundariesZoomInAndZoomOut.1"</span>, graphBuffer.getImage());
 <a class="jxr_linenumber" name="L382" href="#L382">382</a> 
 <a class="jxr_linenumber" name="L383" href="#L383">383</a>         renderer.update(renderer.newUpdate()
-<a class="jxr_linenumber" name="L384" href="#L384">384</a>                 .xAxisRange(AxisRanges.absolute(20, 80))
-<a class="jxr_linenumber" name="L385" href="#L385">385</a>                 .yAxisRange(AxisRanges.absolute(20, 80)));
+<a class="jxr_linenumber" name="L384" href="#L384">384</a>                 .xAxisRange(AxisRanges.fixed(20, 80))
+<a class="jxr_linenumber" name="L385" href="#L385">385</a>                 .yAxisRange(AxisRanges.fixed(20, 80)));
 <a class="jxr_linenumber" name="L386" href="#L386">386</a>         renderer.draw(graphBuffer, data);
 <a class="jxr_linenumber" name="L387" href="#L387">387</a>         ImageAssert.compareImages(<span class="jxr_string">"intensityGraph2D.nonlinearBoundariesZoomInAndZoomOut.2"</span>, graphBuffer.getImage());
 <a class="jxr_linenumber" name="L388" href="#L388">388</a> 
 <a class="jxr_linenumber" name="L389" href="#L389">389</a>         renderer.update(renderer.newUpdate()
-<a class="jxr_linenumber" name="L390" href="#L390">390</a>                 .xAxisRange(AxisRanges.absolute(-20, 120))
-<a class="jxr_linenumber" name="L391" href="#L391">391</a>                 .yAxisRange(AxisRanges.absolute(-20, 120)));
+<a class="jxr_linenumber" name="L390" href="#L390">390</a>                 .xAxisRange(AxisRanges.fixed(-20, 120))
+<a class="jxr_linenumber" name="L391" href="#L391">391</a>                 .yAxisRange(AxisRanges.fixed(-20, 120)));
 <a class="jxr_linenumber" name="L392" href="#L392">392</a>         renderer.draw(graphBuffer, data);
 <a class="jxr_linenumber" name="L393" href="#L393">393</a> 
 <a class="jxr_linenumber" name="L394" href="#L394">394</a>         ImageAssert.compareImages(<span class="jxr_string">"intensityGraph2D.nonlinearBoundariesZoomInAndZoomOut.3"</span>, graphBuffer.getImage());

@@ -557,7 +557,7 @@
 <a class="jxr_linenumber" name="L549" href="#L549">549</a>         BufferedImage image = <strong class="jxr_keyword">new</strong> BufferedImage(300, 200, BufferedImage.TYPE_3BYTE_BGR);
 <a class="jxr_linenumber" name="L550" href="#L550">550</a>         LineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> LineGraph2DRenderer(300, 200);
 <a class="jxr_linenumber" name="L551" href="#L551">551</a>         renderer.update(renderer.newUpdate().interpolation(InterpolationScheme.NEAREST_NEIGHBOR)
-<a class="jxr_linenumber" name="L552" href="#L552">552</a>                 .xAxisRange(AxisRanges.absolute(10, 20)));
+<a class="jxr_linenumber" name="L552" href="#L552">552</a>                 .xAxisRange(AxisRanges.fixed(10, 20)));
 <a class="jxr_linenumber" name="L553" href="#L553">553</a>         Graphics2D graphics = (Graphics2D) image.getGraphics();
 <a class="jxr_linenumber" name="L554" href="#L554">554</a>         renderer.draw(graphics, dataset);
 <a class="jxr_linenumber" name="L555" href="#L555">555</a>         ImageAssert.compareImages(<span class="jxr_string">"lineGraph2D.linear.xAxisRange"</span>, image);
@@ -598,8 +598,8 @@
 <a class="jxr_linenumber" name="L590" href="#L590">590</a>         Graphics2D g = (Graphics2D) image.getGraphics();
 <a class="jxr_linenumber" name="L591" href="#L591">591</a>         LineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> LineGraph2DRenderer(100, 100);
 <a class="jxr_linenumber" name="L592" href="#L592">592</a>         renderer.update(renderer.newUpdate().interpolation(InterpolationScheme.LINEAR)
-<a class="jxr_linenumber" name="L593" href="#L593">593</a>                 .xAxisRange(AxisRanges.integrated(0.0))
-<a class="jxr_linenumber" name="L594" href="#L594">594</a>                 .yAxisRange(AxisRanges.integrated(0.0)));
+<a class="jxr_linenumber" name="L593" href="#L593">593</a>                 .xAxisRange(AxisRanges.auto(0.0))
+<a class="jxr_linenumber" name="L594" href="#L594">594</a>                 .yAxisRange(AxisRanges.auto(0.0)));
 <a class="jxr_linenumber" name="L595" href="#L595">595</a>         renderer.draw(g, data);
 <a class="jxr_linenumber" name="L596" href="#L596">596</a> 
 <a class="jxr_linenumber" name="L597" href="#L597">597</a>         <em class="jxr_comment">//Compares to correct image</em>
@@ -627,8 +627,8 @@
 <a class="jxr_linenumber" name="L619" href="#L619">619</a>         Graphics2D g = (Graphics2D) image.getGraphics();
 <a class="jxr_linenumber" name="L620" href="#L620">620</a>         LineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> LineGraph2DRenderer(100, 100);
 <a class="jxr_linenumber" name="L621" href="#L621">621</a>         renderer.update(renderer.newUpdate().interpolation(InterpolationScheme.LINEAR)
-<a class="jxr_linenumber" name="L622" href="#L622">622</a>                 .xAxisRange(AxisRanges.integrated(0.0))
-<a class="jxr_linenumber" name="L623" href="#L623">623</a>                 .yAxisRange(AxisRanges.integrated(0.0)));
+<a class="jxr_linenumber" name="L622" href="#L622">622</a>                 .xAxisRange(AxisRanges.auto(0.0))
+<a class="jxr_linenumber" name="L623" href="#L623">623</a>                 .yAxisRange(AxisRanges.auto(0.0)));
 <a class="jxr_linenumber" name="L624" href="#L624">624</a>         renderer.draw(g, data);
 <a class="jxr_linenumber" name="L625" href="#L625">625</a> 
 <a class="jxr_linenumber" name="L626" href="#L626">626</a>         <em class="jxr_comment">//Compares to correct image</em>
@@ -642,8 +642,8 @@
 <a class="jxr_linenumber" name="L634" href="#L634">634</a>         Graphics2D g = (Graphics2D) image.getGraphics();
 <a class="jxr_linenumber" name="L635" href="#L635">635</a>         LineGraph2DRenderer renderer = <strong class="jxr_keyword">new</strong> LineGraph2DRenderer(100, 100);
 <a class="jxr_linenumber" name="L636" href="#L636">636</a>         renderer.update(renderer.newUpdate().interpolation(InterpolationScheme.LINEAR)
-<a class="jxr_linenumber" name="L637" href="#L637">637</a>                 .xAxisRange(AxisRanges.integrated(0.0))
-<a class="jxr_linenumber" name="L638" href="#L638">638</a>                 .yAxisRange(AxisRanges.integrated(0.0)));
+<a class="jxr_linenumber" name="L637" href="#L637">637</a>                 .xAxisRange(AxisRanges.auto(0.0))
+<a class="jxr_linenumber" name="L638" href="#L638">638</a>                 .yAxisRange(AxisRanges.auto(0.0)));
 <a class="jxr_linenumber" name="L639" href="#L639">639</a>         renderer.draw(g, data);
 <a class="jxr_linenumber" name="L640" href="#L640">640</a> 
 <a class="jxr_linenumber" name="L641" href="#L641">641</a>         <em class="jxr_comment">//Compares to correct image</em>

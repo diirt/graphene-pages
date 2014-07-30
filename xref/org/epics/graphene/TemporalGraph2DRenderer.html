@@ -97,7 +97,7 @@
 <a class="jxr_linenumber" name="L89" href="#L89">89</a>      <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> imageHeight;
 <a class="jxr_linenumber" name="L90" href="#L90">90</a>      <em class="jxr_comment">// Strategy for calculating the axis range</em>
 <a class="jxr_linenumber" name="L91" href="#L91">91</a>      <strong class="jxr_keyword">private</strong> <a href="../../../org/epics/graphene/TimeAxisRange.html">TimeAxisRange</a> timeAxisRange = TimeAxisRanges.relative();
-<a class="jxr_linenumber" name="L92" href="#L92">92</a>      <strong class="jxr_keyword">private</strong> <a href="../../../org/epics/graphene/AxisRangeInstance.html">AxisRangeInstance</a> axisRange = AxisRanges.integrated(0.0).createInstance();
+<a class="jxr_linenumber" name="L92" href="#L92">92</a>      <strong class="jxr_keyword">private</strong> <a href="../../../org/epics/graphene/AxisRangeInstance.html">AxisRangeInstance</a> axisRange = AxisRanges.auto(0.0).createInstance();
 <a class="jxr_linenumber" name="L93" href="#L93">93</a>      <em class="jxr_comment">// Strategy for generating labels and scaling value of the axis</em>
 <a class="jxr_linenumber" name="L94" href="#L94">94</a>      <strong class="jxr_keyword">private</strong> <a href="../../../org/epics/graphene/TimeScale.html">TimeScale</a> timeScale = TimeScales.linearAbsoluteScale();
 <a class="jxr_linenumber" name="L95" href="#L95">95</a>      <strong class="jxr_keyword">private</strong> <a href="../../../org/epics/graphene/ValueScale.html">ValueScale</a> valueScale = ValueScales.linearScale();

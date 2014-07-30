@@ -28,9 +28,9 @@
 <a class="jxr_linenumber" name="L20" href="#L20">20</a>      }
 <a class="jxr_linenumber" name="L21" href="#L21">21</a>  
 <a class="jxr_linenumber" name="L22" href="#L22">22</a>      @Test
-<a class="jxr_linenumber" name="L23" href="#L23">23</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> absolute1() {
-<a class="jxr_linenumber" name="L24" href="#L24">24</a>          AxisRange axisRange = AxisRanges.absolute(0.0, 10.0);
-<a class="jxr_linenumber" name="L25" href="#L25">25</a>          assertThat(axisRange.toString(), equalTo(<span class="jxr_string">"absolute(0.0, 10.0)"</span>));
+<a class="jxr_linenumber" name="L23" href="#L23">23</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> fixed1() {
+<a class="jxr_linenumber" name="L24" href="#L24">24</a>          AxisRange axisRange = AxisRanges.fixed(0.0, 10.0);
+<a class="jxr_linenumber" name="L25" href="#L25">25</a>          assertThat(axisRange.toString(), equalTo(<span class="jxr_string">"fixed(0.0, 10.0)"</span>));
 <a class="jxr_linenumber" name="L26" href="#L26">26</a>          AxisRangeInstance axisRangeInstance = axisRange.createInstance();
 <a class="jxr_linenumber" name="L27" href="#L27">27</a>          Range range = axisRangeInstance.axisRange(Ranges.range(3.0, 15.0), Ranges.range(-3.0, 4.0));
 <a class="jxr_linenumber" name="L28" href="#L28">28</a>          assertThat(range.getMinimum(), equalTo((Number) 0.0));
@@ -38,8 +38,8 @@
 <a class="jxr_linenumber" name="L30" href="#L30">30</a>      }
 <a class="jxr_linenumber" name="L31" href="#L31">31</a>  
 <a class="jxr_linenumber" name="L32" href="#L32">32</a>      @Test(expected=IllegalArgumentException.<strong class="jxr_keyword">class</strong>)
-<a class="jxr_linenumber" name="L33" href="#L33">33</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> absolute2() {
-<a class="jxr_linenumber" name="L34" href="#L34">34</a>          AxisRange axisRange = AxisRanges.absolute(10.0, 0.0);
+<a class="jxr_linenumber" name="L33" href="#L33">33</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> fixed2() {
+<a class="jxr_linenumber" name="L34" href="#L34">34</a>          AxisRange axisRange = AxisRanges.fixed(10.0, 0.0);
 <a class="jxr_linenumber" name="L35" href="#L35">35</a>      }
 <a class="jxr_linenumber" name="L36" href="#L36">36</a>  
 <a class="jxr_linenumber" name="L37" href="#L37">37</a>      @Test
@@ -57,9 +57,9 @@
 <a class="jxr_linenumber" name="L49" href="#L49">49</a>      }
 <a class="jxr_linenumber" name="L50" href="#L50">50</a>  
 <a class="jxr_linenumber" name="L51" href="#L51">51</a>      @Test
-<a class="jxr_linenumber" name="L52" href="#L52">52</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> integrated1() {
-<a class="jxr_linenumber" name="L53" href="#L53">53</a>          AxisRange axisRange = AxisRanges.integrated();
-<a class="jxr_linenumber" name="L54" href="#L54">54</a>          assertThat(axisRange.toString(), equalTo(<span class="jxr_string">"integrated(80%)"</span>));
+<a class="jxr_linenumber" name="L52" href="#L52">52</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> auto1() {
+<a class="jxr_linenumber" name="L53" href="#L53">53</a>          AxisRange axisRange = AxisRanges.auto();
+<a class="jxr_linenumber" name="L54" href="#L54">54</a>          assertThat(axisRange.toString(), equalTo(<span class="jxr_string">"auto(80%)"</span>));
 <a class="jxr_linenumber" name="L55" href="#L55">55</a>          AxisRangeInstance axisRangeInstance = axisRange.createInstance();
 <a class="jxr_linenumber" name="L56" href="#L56">56</a>          Range range = axisRangeInstance.axisRange(Ranges.range(3.0, 5.0), Ranges.range(-3.0, 4.0));
 <a class="jxr_linenumber" name="L57" href="#L57">57</a>          assertThat(range.getMinimum(), equalTo((Number) 3.0));
@@ -71,9 +71,9 @@
 <a class="jxr_linenumber" name="L63" href="#L63">63</a>      }
 <a class="jxr_linenumber" name="L64" href="#L64">64</a>  
 <a class="jxr_linenumber" name="L65" href="#L65">65</a>      @Test
-<a class="jxr_linenumber" name="L66" href="#L66">66</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> integrated2() {
-<a class="jxr_linenumber" name="L67" href="#L67">67</a>          AxisRange axisRange = AxisRanges.integrated();
-<a class="jxr_linenumber" name="L68" href="#L68">68</a>          assertThat(axisRange.toString(), equalTo(<span class="jxr_string">"integrated(80%)"</span>));
+<a class="jxr_linenumber" name="L66" href="#L66">66</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> auto2() {
+<a class="jxr_linenumber" name="L67" href="#L67">67</a>          AxisRange axisRange = AxisRanges.auto();
+<a class="jxr_linenumber" name="L68" href="#L68">68</a>          assertThat(axisRange.toString(), equalTo(<span class="jxr_string">"auto(80%)"</span>));
 <a class="jxr_linenumber" name="L69" href="#L69">69</a>          AxisRangeInstance axisRangeInstance = axisRange.createInstance();
 <a class="jxr_linenumber" name="L70" href="#L70">70</a>          Range range = axisRangeInstance.axisRange(Ranges.range(3.0, 5.0), Ranges.range(-3.0, 4.0));
 <a class="jxr_linenumber" name="L71" href="#L71">71</a>          assertThat(range.getMinimum(), equalTo((Number) 3.0));
@@ -103,9 +103,9 @@
 <a class="jxr_linenumber" name="L95" href="#L95">95</a>      }
 <a class="jxr_linenumber" name="L96" href="#L96">96</a>      
 <a class="jxr_linenumber" name="L97" href="#L97">97</a>      @Test
-<a class="jxr_linenumber" name="L98" href="#L98">98</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> absoluteEquals() {
-<a class="jxr_linenumber" name="L99" href="#L99">99</a>          assertThat(AxisRanges.absolute(0, 1), equalTo(AxisRanges.absolute(0, 1)));
-<a class="jxr_linenumber" name="L100" href="#L100">100</a>         assertThat(AxisRanges.absolute(0, 1), not(equalTo(AxisRanges.absolute(0, 5))));
+<a class="jxr_linenumber" name="L98" href="#L98">98</a>      <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> fixedEquals() {
+<a class="jxr_linenumber" name="L99" href="#L99">99</a>          assertThat(AxisRanges.fixed(0, 1), equalTo(AxisRanges.fixed(0, 1)));
+<a class="jxr_linenumber" name="L100" href="#L100">100</a>         assertThat(AxisRanges.fixed(0, 1), not(equalTo(AxisRanges.fixed(0, 5))));
 <a class="jxr_linenumber" name="L101" href="#L101">101</a>     }
 <a class="jxr_linenumber" name="L102" href="#L102">102</a>     
 <a class="jxr_linenumber" name="L103" href="#L103">103</a>     @Test
@@ -119,10 +119,10 @@
 <a class="jxr_linenumber" name="L111" href="#L111">111</a>     }
 <a class="jxr_linenumber" name="L112" href="#L112">112</a>     
 <a class="jxr_linenumber" name="L113" href="#L113">113</a>     @Test
-<a class="jxr_linenumber" name="L114" href="#L114">114</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> integratedEquals() {
-<a class="jxr_linenumber" name="L115" href="#L115">115</a>         assertThat(AxisRanges.integrated(), equalTo(AxisRanges.integrated()));
-<a class="jxr_linenumber" name="L116" href="#L116">116</a>         assertThat(AxisRanges.integrated(0.5), equalTo(AxisRanges.integrated(0.5)));
-<a class="jxr_linenumber" name="L117" href="#L117">117</a>         assertThat(AxisRanges.integrated(0.5), not(equalTo(AxisRanges.integrated(0.8))));
+<a class="jxr_linenumber" name="L114" href="#L114">114</a>     <strong class="jxr_keyword">public</strong> <strong class="jxr_keyword">void</strong> autoEquals() {
+<a class="jxr_linenumber" name="L115" href="#L115">115</a>         assertThat(AxisRanges.auto(), equalTo(AxisRanges.auto()));
+<a class="jxr_linenumber" name="L116" href="#L116">116</a>         assertThat(AxisRanges.auto(0.5), equalTo(AxisRanges.auto(0.5)));
+<a class="jxr_linenumber" name="L117" href="#L117">117</a>         assertThat(AxisRanges.auto(0.5), not(equalTo(AxisRanges.auto(0.8))));
 <a class="jxr_linenumber" name="L118" href="#L118">118</a>     }
 <a class="jxr_linenumber" name="L119" href="#L119">119</a> }
 </pre>

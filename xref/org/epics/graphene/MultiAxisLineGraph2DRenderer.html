@@ -80,8 +80,8 @@
 <a class="jxr_linenumber" name="L72" href="#L72">72</a>      <strong class="jxr_keyword">private</strong> List&lt;ListDouble&gt; yReferenceValues;
 <a class="jxr_linenumber" name="L73" href="#L73">73</a>      <strong class="jxr_keyword">private</strong> List&lt;List&lt;String&gt;&gt; yReferenceLabels;
 <a class="jxr_linenumber" name="L74" href="#L74">74</a>      <strong class="jxr_keyword">private</strong> Range emptyRange;
-<a class="jxr_linenumber" name="L75" href="#L75">75</a>      <strong class="jxr_keyword">private</strong> <a href="../../../org/epics/graphene/AxisRangeInstance.html">AxisRangeInstance</a> xAxisRange = AxisRanges.integrated().createInstance();
-<a class="jxr_linenumber" name="L76" href="#L76">76</a>      <strong class="jxr_keyword">private</strong> <a href="../../../org/epics/graphene/AxisRangeInstance.html">AxisRangeInstance</a> yAxisRange = AxisRanges.integrated().createInstance();
+<a class="jxr_linenumber" name="L75" href="#L75">75</a>      <strong class="jxr_keyword">private</strong> <a href="../../../org/epics/graphene/AxisRangeInstance.html">AxisRangeInstance</a> xAxisRange = AxisRanges.auto().createInstance();
+<a class="jxr_linenumber" name="L76" href="#L76">76</a>      <strong class="jxr_keyword">private</strong> <a href="../../../org/epics/graphene/AxisRangeInstance.html">AxisRangeInstance</a> yAxisRange = AxisRanges.auto().createInstance();
 <a class="jxr_linenumber" name="L77" href="#L77">77</a>      <strong class="jxr_keyword">private</strong> List&lt;AxisRangeInstance&gt; yAxisRanges;
 <a class="jxr_linenumber" name="L78" href="#L78">78</a>      <strong class="jxr_keyword">private</strong> <a href="../../../org/epics/graphene/ValueScale.html">ValueScale</a> xValueScale = ValueScales.linearScale();
 <a class="jxr_linenumber" name="L79" href="#L79">79</a>      <strong class="jxr_keyword">private</strong> <a href="../../../org/epics/graphene/ValueScale.html">ValueScale</a> yValueScale = ValueScales.linearScale();
@@ -1022,7 +1022,7 @@
 <a class="jxr_linenumber" name="L1014" href="#L1014">1014</a>         g.draw(path);
 <a class="jxr_linenumber" name="L1015" href="#L1015">1015</a>     }
 <a class="jxr_linenumber" name="L1016" href="#L1016">1016</a>     
-<a class="jxr_linenumber" name="L1017" href="#L1017">1017</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">class</strong> <a href="../../../org/epics/graphene/MultiAxisLineGraph2DRenderer.html">ScaledData</a> {
+<a class="jxr_linenumber" name="L1017" href="#L1017">1017</a>     <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">static</strong> <strong class="jxr_keyword">class</strong> <a href="../../../org/epics/graphene/Graph2DRenderer.html">ScaledData</a> {
 <a class="jxr_linenumber" name="L1018" href="#L1018">1018</a>         <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">double</strong>[] scaledX;
 <a class="jxr_linenumber" name="L1019" href="#L1019">1019</a>         <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">double</strong>[] scaledY;
 <a class="jxr_linenumber" name="L1020" href="#L1020">1020</a>         <strong class="jxr_keyword">private</strong> <strong class="jxr_keyword">int</strong> start;
